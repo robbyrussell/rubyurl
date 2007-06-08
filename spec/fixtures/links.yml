@@ -1,0 +1,15 @@
+planetargon:
+  id: 1
+  website_url: http://www.planetargon.com/
+  token: pa
+
+rubyonrails:
+  id: 2
+  website_url: http://www.rubyonrails.org/
+  token: ror
+
+ruby_lang:
+  id: 3
+  website_url: http://www.ruby-lang.org/
+  token: ruby
+
