@@ -3,6 +3,7 @@ class CreateLinks < ActiveRecord::Migration
     create_table :links do |t|
       t.column "website_url", :text
       t.column "token",       :string
+      t.column "permalink",   :string
       t.column "ip_address",  :string
       t.column "created_at",  :datetime
       t.column "updated_at",  :datetime
