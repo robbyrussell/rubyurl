@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="description" content="description goes here" />
+    <meta name="keywords" content="keywords go here" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta name="ROBOTS" content="ALL" />
+    <meta http-equiv="imagetoolbar" content="false" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+
+	<title>RubyURL &raquo; <%= (title = yield :title) ? title : 'Happy URLS for Happy Developers' %></title>
+	
+	<%= javascript_include_tag :defaults %>	
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<h1><a href="/">RubyURL</a></h1> <!--heading tag temporary until design is implemented -->
+		</div>
+			<% if flash[:notice] %>
+				<div id="flash_notice" class="flash">
+					<p><%= flash[:notice] %></p>
+				</div>
+			<% end %>
+
+			<% if flash[:message] %>
+				<div id="flash_message" class="flash">
+					<p><%= flash[:message] %></p>
+				</div>
+			<% end %>
+
+			<% if flash[:warning] %>
+				<div id="flash_warning" class="flash">
+					<p><%= flash[:warning] %></p>
+				</div>
+			<% end %>
+		<!-- end flash -->
+			<%= yield %>
+		<div id="footer">
+			<%= render :partial => 'shared/footer' %>
+		</div> <!-- end footer -->
+	</div><!-- end wrapper -->
+			
+</body>
+</html>
