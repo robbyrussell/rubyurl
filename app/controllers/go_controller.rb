@@ -1,0 +1,2 @@
+class GoController < ApplicationController
+end
