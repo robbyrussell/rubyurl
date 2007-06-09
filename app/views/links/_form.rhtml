@@ -1,0 +1,6 @@
+<% form_for :link, @link, :url => {:controller => :links ,:action => 'new'}  do |f| %>
+  <label for="link_website_url">Website URL</label>
+  <%= f.text_field :website_url %>
+  
+  <%= submit_tag 'Go!' -%>
+<% end %>
