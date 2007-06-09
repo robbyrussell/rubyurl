@@ -270,3 +270,163 @@ Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/
   [4;36;1mLink Create (0.001499)[0m   [0;1mINSERT INTO links ("updated_at", "token", "website_url", "created_at", "ip_address") VALUES('2007-06-07 12:45:21.474717', 'Pfg', 'http://www.google.com/', '2007-06-07 12:45:21.474717', '192.168.1.1')[0m
   [4;35;1mSQL (0.001601)[0m   [0mSELECT currval('links_id_seq')[0m
   [4;36;1mSQL (0.000643)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.001169)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001585)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000651)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001021)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001241)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000572)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.005444)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.212943)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.001876)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.003297)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001053)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000356)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001517)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.001318)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000776)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000655)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002212)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001224)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.001206)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000662)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002994)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001478)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000595)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000661)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.001130)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001027)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000531)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000732)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001274)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000666)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000624)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001562)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000559)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001471)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.033319)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.001898)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002477)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000629)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.003678)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002042)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.001557)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000670)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001017)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002091)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001520)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000559)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001539)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001902)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001311)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000578)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001037)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001777)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002206)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.004266)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'AFz') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.034051)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.226855)[0m   [0;1mINSERT INTO links ("updated_at", "token", "website_url", "created_at", "ip_address") VALUES('2007-06-09 15:32:59.537394', 'AFz', 'http://www.google.com/', '2007-06-09 15:32:59.537394', '192.168.1.1')[0m
+  [4;35;1mSQL (0.159823)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000667)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000350)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004743)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001214)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.004168)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'UrW') LIMIT 1[0m
+  [4;35;1mLink Create (0.003969)[0m   [0mINSERT INTO links ("updated_at", "token", "website_url", "created_at", "ip_address") VALUES('2007-06-09 15:33:00.083450', 'UrW', 'http://www.google.com/', '2007-06-09 15:33:00.083450', '192.168.1.1')[0m
+  [4;36;1mSQL (0.002092)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000674)[0m   [0mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000682)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001490)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.001815)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000626)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001171)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000733)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.004581)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.012046)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.065830)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.004965)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.005495)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000417)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001471)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.003323)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000986)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000698)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002622)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001483)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000623)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000629)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001919)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001239)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000636)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000629)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001950)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001314)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.015760)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '2T0') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.125450)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.003952)[0m   [0;1mINSERT INTO links ("updated_at", "token", "website_url", "created_at", "ip_address") VALUES('2007-06-09 15:33:53.973334', '2T0', 'http://www.google.com/', '2007-06-09 15:33:53.973334', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001670)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000891)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001243)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002371)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001347)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002520)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'dbG') LIMIT 1[0m
+  [4;35;1mLink Create (0.002066)[0m   [0mINSERT INTO links ("updated_at", "token", "website_url", "created_at", "ip_address") VALUES('2007-06-09 15:33:54.249598', 'dbG', 'http://www.google.com/', '2007-06-09 15:33:54.249598', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001149)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.003098)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.013333)[0m   [0;1mROLLBACK[0m
