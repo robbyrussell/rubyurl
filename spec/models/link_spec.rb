@@ -58,6 +58,14 @@ describe Link, "a new link" do
     @link.save.should be_true
     @link.token.should_not be_nil
   end
+  
+  it "should generate a permalink upon create" do
+    @link.attributes = valid_attributes
+    @link.permalink.should be_nil
+    @link.save.should be_true
+    @link.permalink.should_not be_nil
+    @link.permalink.should eql(Link::DOMAIN_NAME + @link.token)
+  end
 end
 
 describe "A new Link, which already exists" do

@@ -1,10 +1,11 @@
 class Link < ActiveRecord::Base
   TOKEN_LENGTH = 3
+  DOMAIN_NAME = 'http://rubyurl.com/'
   
   validates_presence_of :website_url, :ip_address
   validates_uniqueness_of :website_url, :token
   
-  before_save :generate_token
+  before_create :generate_token
   
   private
   
@@ -12,10 +13,15 @@ class Link < ActiveRecord::Base
       temp_token = random_token
       if self.class.find_by_token(temp_token).nil?
         self.token = temp_token
+        build_permalink
         return true
       else
         generate_token
       end
+    end
+    
+    def build_permalink
+      self.permalink = DOMAIN_NAME + self.token
     end
   
     def random_token
