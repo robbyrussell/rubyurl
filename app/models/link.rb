@@ -1,8 +1,8 @@
 class Link < ActiveRecord::Base
-  TOKEN_LENGTH = 5
+  TOKEN_LENGTH = 3
   
   validates_presence_of :website_url, :ip_address
-  validates_uniquness_of :website_url, :token
+  validates_uniqueness_of :website_url, :token
   
   before_save :generate_token
   

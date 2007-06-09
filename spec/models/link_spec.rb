@@ -59,3 +59,18 @@ describe Link, "a new link" do
     @link.token.should_not be_nil
   end
 end
+
+describe "A new Link, which already exists" do
+  include LinkSpecHelper
+  
+  before(:each) do
+    @link = Link.new
+    @link.attributes = valid_attributes
+    @link.save
+  end
+  
+  it "should return the original link rather than create a new one" do
+    new_link = Link.find_or_create_by_website_url(valid_attributes[:website_url])
+    new_link.should eql(@link)
+  end
+end
