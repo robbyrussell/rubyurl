@@ -1,6 +1,5 @@
 class Link < ActiveRecord::Base
   TOKEN_LENGTH = 3
-  DOMAIN_NAME = 'http://rubyurl.com/'
   
   validates_presence_of :website_url, :ip_address
   validates_uniqueness_of :website_url, :token
@@ -34,4 +33,5 @@ class Link < ActiveRecord::Base
       end
       temp_token
     end
+    
 end
