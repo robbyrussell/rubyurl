@@ -1,11 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-module LinkSpecHelper
-  def valid_attributes
-    {:website_url => 'http://www.google.com/', :ip_address => '192.168.1.1'}
-  end
-end
-
 describe Link, "with fixtures loaded" do
   fixtures :links
   
@@ -64,7 +58,7 @@ describe Link, "a new link" do
     @link.permalink.should be_nil
     @link.save.should be_true
     @link.permalink.should_not be_nil
-    @link.permalink.should eql(Link::DOMAIN_NAME + @link.token)
+    @link.permalink.should eql(DOMAIN_NAME + @link.token)
   end
 end
 

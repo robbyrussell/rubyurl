@@ -24,3 +24,10 @@ Spec::Runner.configure do |config|
   # If you declare global fixtures, be aware that they will be declared
   # for all of your examples, even those that don't use them.
 end
+
+
+module LinkSpecHelper
+  def valid_attributes
+    {:website_url => 'http://www.google.com/', :ip_address => '192.168.1.1'}
+  end
+end
