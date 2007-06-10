@@ -1,0 +1,16 @@
+visit_one:
+  id: 1
+  link_id: 1
+  ip_address: 127.0.0.1
+  
+visit_two:
+  id: 2
+  link_id: 1
+  ip_address: 127.0.0.1
+  
+visit_three:  
+  id: 3
+  link_id: 4
+  ip_address: 127.0.0.1
+  flagged: spam
+

@@ -1,10 +1,24 @@
 class Link < ActiveRecord::Base
   TOKEN_LENGTH = 3
   
+  has_many :visits
+  has_many :spam_visits, :class_name => 'Visit', :conditions => ["flagged = 'spam'"]
+  
   validates_presence_of :website_url, :ip_address
   validates_uniqueness_of :website_url, :token
   
   before_create :generate_token
+  
+  def flagged_as_spam?
+    self.spam_visits.empty? ? false : true
+  end
+  
+  def add_visit(request)
+    visit = Visit.new
+    visit.ip_address = request.remote_ip
+    visit.save
+    return visit
+  end
   
   private
   

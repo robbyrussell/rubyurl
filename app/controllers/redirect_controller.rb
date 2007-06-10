@@ -3,6 +3,7 @@ class RedirectController < ApplicationController
 
   def index
     @link = Link.find_by_token( params[:token] )
+    @link.add_visitor(request)
     redirect_to :controller => 'go' if @link.nil?
   end
   
@@ -12,7 +13,6 @@ class RedirectController < ApplicationController
   
   def flagged
     render :layout => false
-    
   end
 end
 

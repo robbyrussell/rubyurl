@@ -2236,3 +2236,310 @@ Rendering go/index
 Rendered links/_form (0.00806)
 Rendered shared/_footer (0.00027)
 Completed in 0.05826 (17 reqs/sec) | Rendering: 0.02210 (37%) | DB: 0.00566 (9%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-09 17:03:21) [GET]
+  Session ID: aae52b110fe4c5aad206d14308e446a3
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.005230)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00667)
+Rendered shared/_footer (0.00033)
+Completed in 0.04637 (21 reqs/sec) | Rendering: 0.01372 (29%) | DB: 0.00523 (11%) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.004531)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001125)[0m   [0mSHOW search_path[0m
+  [4;36;1mSQL (0.257194)[0m   [0;1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname IN ('$user','public')
+[0m
+  [4;35;1mSQL (0.039892)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mPK and serial sequence (0.032419)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mSQL (0.014884)[0m   [0m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'links'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mPGError: ERROR: table "links" does not exist
+: DROP TABLE links[0m
+  [4;35;1mSQL (0.077034)[0m   [0mCREATE TABLE links ("id" serial primary key, "website_url" text DEFAULT NULL, "token" character varying(255) DEFAULT NULL, "permalink" character varying(255) DEFAULT NULL, "ip_address" character varying(255) DEFAULT NULL, "created_at" timestamp DEFAULT NULL, "updated_at" timestamp DEFAULT NULL) [0m
+  [4;36;1mSQL (0.008409)[0m   [0;1mCREATE INDEX "index_links_on_token" ON links ("token")[0m
+  [4;35;1mSQL (0.004914)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.003382)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.121828)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'schema_info'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.002471)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-09 17:03:43) [POST]
+  Session ID: aae52b110fe4c5aad206d14308e446a3
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://planetargon.com/"}}
+  [4;35;1mSQL (0.015020)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.001968)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://planetargon.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000548)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.025016)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://planetargon.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.004824)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000562)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000444)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002014)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://planetargon.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001382)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002284)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '8vQ') LIMIT 1[0m
+  [4;35;1mSQL (0.000654)[0m   [0mROLLBACK[0m
+
+
+NameError (uninitialized constant Link::DOMAIN_NAME):
+    /opt/local/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/dependencies.rb:477:in `const_missing'
+    /app/models/link.rb:23:in `build_permalink'
+    /app/models/link.rb:15:in `generate_token'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/callbacks.rb:333:in `callback'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/callbacks.rb:330:in `callback'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/callbacks.rb:253:in `create_without_timestamps'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/timestamp.rb:39:in `create'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1789:in `create_or_update_without_callbacks'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/callbacks.rb:242:in `create_or_update'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1545:in `save_without_validation'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/validations.rb:752:in `save_without_transactions'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/transactions.rb:129:in `save'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/connection_adapters/abstract/database_statements.rb:59:in `transaction'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/transactions.rb:95:in `transaction'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/transactions.rb:121:in `transaction'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/transactions.rb:129:in `save'
+    /app/controllers/links_controller.rb:7:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel/rails.rb:78:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel.rb:618:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel.rb:617:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel.rb:720:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/bin/mongrel_rails:127:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0/bin/mongrel_rails:243
+    /opt/local/bin/mongrel_rails:18
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-09 17:04:07) [POST]
+  Session ID: aae52b110fe4c5aad206d14308e446a3
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://planetargon.com/"}}
+  [4;36;1mSQL (0.049876)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.004738)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://planetargon.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000897)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001628)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://planetargon.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001926)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000559)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001599)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://planetargon.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002059)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.005504)[0m   [0mSELECT * FROM links WHERE (links."token" = '9nz') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.019962)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.003475)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://localhost:3000/9nz', '2007-06-09 17:04:07.737602', '9nz', 'http://planetargon.com/', '2007-06-09 17:04:07.737602', '127.0.0.1')[0m
+  [4;36;1mSQL (0.002961)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.002486)[0m   [0mCOMMIT[0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.01979)
+Completed in 0.65926 (1 reqs/sec) | Rendering: 0.39042 (59%) | DB: 0.09832 (14%) | 200 OK [http://localhost/links/new]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-09 17:04:26) [GET]
+  Session ID: aae52b110fe4c5aad206d14308e446a3
+  Parameters: {"token"=>"9nz", "action"=>"index", "controller"=>"redirect"}
+  [4;36;1mSQL (0.004782)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.002593)[0m   [0mSELECT * FROM links WHERE (links."token" = '9nz') LIMIT 1[0m
+Rendering  within layouts/redirect
+Rendering redirect/index
+Completed in 0.04653 (21 reqs/sec) | Rendering: 0.01217 (26%) | DB: 0.00738 (15%) | 200 OK [http://localhost/9nz]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#top (for 127.0.0.1 at 2007-06-09 17:04:27) [GET]
+  Session ID: aae52b110fe4c5aad206d14308e446a3
+  Parameters: {"action"=>"top", "controller"=>"redirect"}
+Rendering redirect/top
+Completed in 0.00698 (143 reqs/sec) | Rendering: 0.00432 (61%) | DB: 0.00000 (0%) | 200 OK [http://localhost/redirect/top]
+  [4;36;1mSQL (0.000000)[0m   [0;1mPGError: ERROR: relation "schema_info" already exists
+: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mPGError: ERROR: relation "schema_info" already exists
+: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.035903)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001405)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateVisits (2)
+  [4;36;1mSQL (0.166555)[0m   [0;1mCREATE TABLE visits ("id" serial primary key, "link_id" integer DEFAULT NULL, "referral_link" text DEFAULT NULL, "flagged" character varying(255) DEFAULT NULL, "ip_address" text DEFAULT NULL, "created_at" timestamp DEFAULT NULL) [0m
+  [4;35;1mSQL (0.006877)[0m   [0mCREATE INDEX "index_visits_on_link_id" ON visits ("link_id")[0m
+  [4;36;1mSQL (0.020306)[0m   [0;1mCREATE INDEX "index_visits_on_flagged" ON visits ("flagged")[0m
+  [4;35;1mSQL (0.004279)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.007048)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000836)[0m   [0mSHOW search_path[0m
+  [4;36;1mSQL (0.223567)[0m   [0;1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname IN ('$user','public')
+[0m
+  [4;35;1mSQL (0.017780)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mPK and serial sequence (0.027421)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mSQL (0.014055)[0m   [0m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'links'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m
+  [4;36;1mSQL (0.007849)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mPK and serial sequence (0.012510)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mSQL (0.015686)[0m   [0;1m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'visits'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m

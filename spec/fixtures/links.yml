@@ -13,3 +13,7 @@ ruby_lang:
   website_url: http://www.ruby-lang.org/
   token: ruby
 
+spammer_site:
+  id: 4
+  website_url: http://viagra.com/
+  token: 423

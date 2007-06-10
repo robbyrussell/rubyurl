@@ -1062,3 +1062,1406 @@ Rendering links/show
 Completed in 0.23594 (4 reqs/sec) | Rendering: 0.03119 (13%) | DB: 0.17271 (73%) | 200 OK [http://test.host/links/new?link=website_urlhttp%3A%2F%2Fwww.google.com%2Fip_address192.168.1.1]
   [4;35;1mSQL (0.002487)[0m   [0mSELECT count(*) AS count_all FROM links [0m
   [4;36;1mSQL (0.001068)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.001533)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001167)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000339)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000693)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000325)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001046)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000912)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.025303)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.003993)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001585)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.006073)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'XWx') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.022357)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.004515)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/XWx', '2007-06-09 17:03:57.262353', 'XWx', 'http://www.google.com/', '2007-06-09 17:03:57.262353', '192.168.1.1')[0m
+  [4;35;1mSQL (0.002413)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.002104)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.040449)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000350)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001695)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001725)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002663)[0m   [0mSELECT * FROM links WHERE (links."token" = 'nXQ') LIMIT 1[0m
+  [4;36;1mLink Create (0.001516)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/nXQ', '2007-06-09 17:03:57.432308', 'nXQ', 'http://www.google.com/', '2007-06-09 17:03:57.432308', '192.168.1.1')[0m
+  [4;35;1mSQL (0.000960)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000611)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000570)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002124)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001496)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002426)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'Vkw') LIMIT 1[0m
+  [4;35;1mLink Create (0.001550)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/Vkw', '2007-06-09 17:03:57.534306', 'Vkw', 'http://www.google.com/', '2007-06-09 17:03:57.534306', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001016)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.001109)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000769)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001731)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001899)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000622)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000537)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.007332)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002287)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.012664)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000627)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001545)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001324)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.001100)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000684)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001985)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.001657)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.000534)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001647)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001504)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000624)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000533)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001277)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000587)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000324)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.002149)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+
+
+Processing LinksController#new (for 0.0.0.0 at 2007-06-09 17:03:57) [POST]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://www.google.com/", "ip_address"=>"192.168.1.1"}}
+  [4;36;1mLink Load (0.002227)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001723)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.005461)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002585)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001695)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002702)[0m   [0mSELECT * FROM links WHERE (links."token" = '6iu') LIMIT 1[0m
+  [4;36;1mLink Create (0.001859)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/6iu', '2007-06-09 17:03:58.226349', '6iu', 'http://www.google.com/', '2007-06-09 17:03:58.226349', '0.0.0.0')[0m
+  [4;35;1mSQL (0.001291)[0m   [0mSELECT currval('links_id_seq')[0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Completed in 0.35367 (2 reqs/sec) | Rendering: 0.00140 (0%) | DB: 0.20010 (56%) | 200 OK [http://test.host/links/new?link=ip_address192.168.1.1website_urlhttp%3A%2F%2Fwww.google.com%2F]
+  [4;36;1mSQL (0.001720)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+  [4;35;1mSQL (0.000600)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000574)[0m   [0;1mBEGIN[0m
+
+
+Processing LinksController#new (for 0.0.0.0 at 2007-06-09 17:03:58) [POST]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"links", "link"=>{"ip_address"=>"192.168.1.1"}}
+  [4;35;1mLink Load (0.001775)[0m   [0mSELECT * FROM links WHERE (links."website_url" IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001592)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002169)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001579)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002162)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+Rendering  within layouts/application
+Rendering links/new
+Completed in 0.06864 (14 reqs/sec) | Rendering: 0.00123 (1%) | DB: 0.01217 (17%) | 200 OK [http://test.host/links/new?link=ip_address192.168.1.1]
+  [4;36;1mLink Load (0.001564)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.001946)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000821)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.001415)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001313)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000618)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000602)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001538)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000614)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000444)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.083083)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002674)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002456)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001042)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000628)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001805)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002176)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000974)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000661)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004374)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.001608)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.001004)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000814)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002035)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.001523)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.000552)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000313)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.007387)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002236)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000709)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001063)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002429)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001349)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.001264)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000591)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.027758)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002780)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000557)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001208)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002466)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001362)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.007378)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'F4K') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.014493)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.002052)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/F4K', '2007-06-09 17:14:57.559016', 'F4K', 'http://www.google.com/', '2007-06-09 17:14:57.559016', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001475)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000750)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000555)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005661)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001741)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002836)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 't5Z') LIMIT 1[0m
+  [4;35;1mLink Create (0.002782)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/t5Z', '2007-06-09 17:14:57.655335', 't5Z', 'http://www.google.com/', '2007-06-09 17:14:57.655335', '192.168.1.1')[0m
+  [4;36;1mSQL (0.000819)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000997)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000369)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.065099)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001955)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002528)[0m   [0mSELECT * FROM links WHERE (links."token" = 'UHQ') LIMIT 1[0m
+  [4;36;1mLink Create (0.001558)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/UHQ', '2007-06-09 17:14:57.780659', 'UHQ', 'http://www.google.com/', '2007-06-09 17:14:57.780659', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001513)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.002257)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.001423)[0m   [0mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.002023)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002009)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000563)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000669)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.015541)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000619)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000407)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.016056)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.156560)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002046)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000681)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.025417)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.003170)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mPGError: ERROR: relation "visits" does not exist
+: SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000544)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000445)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001736)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002147)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.001627)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000861)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004155)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002119)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.000760)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000320)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002048)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.007037)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000625)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000592)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002514)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001736)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000546)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001012)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002491)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002239)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000606)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001063)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002050)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001913)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.004678)[0m   [0mSELECT * FROM links WHERE (links."token" = 'ugV') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.011042)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.001868)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/ugV', '2007-06-09 17:15:36.303141', 'ugV', 'http://www.google.com/', '2007-06-09 17:15:36.303141', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001564)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000692)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000597)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.088784)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001705)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.003280)[0m   [0mSELECT * FROM links WHERE (links."token" = 'rOc') LIMIT 1[0m
+  [4;36;1mLink Create (0.002631)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/rOc', '2007-06-09 17:15:36.440898', 'rOc', 'http://www.google.com/', '2007-06-09 17:15:36.440898', '192.168.1.1')[0m
+  [4;35;1mSQL (0.000784)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.001148)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000474)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001668)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.004176)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001985)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'mBj') LIMIT 1[0m
+  [4;35;1mLink Create (0.002844)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/mBj', '2007-06-09 17:15:36.775754', 'mBj', 'http://www.google.com/', '2007-06-09 17:15:36.775754', '192.168.1.1')[0m
+  [4;36;1mSQL (0.000823)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.002552)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.001122)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mPGError: ERROR: relation "schema_info" already exists
+: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mPGError: ERROR: relation "schema_info" already exists
+: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.003492)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001716)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateVisits (2)
+  [4;36;1mSQL (0.074184)[0m   [0;1mCREATE TABLE visits ("id" serial primary key, "link_id" integer DEFAULT NULL, "referral_link" text DEFAULT NULL, "flagged" character varying(255) DEFAULT NULL, "ip_address" text DEFAULT NULL, "created_at" timestamp DEFAULT NULL) [0m
+  [4;35;1mSQL (0.008825)[0m   [0mCREATE INDEX "index_visits_on_link_id" ON visits ("link_id")[0m
+  [4;36;1mSQL (0.007468)[0m   [0;1mCREATE INDEX "index_visits_on_flagged" ON visits ("flagged")[0m
+  [4;35;1mSQL (0.002766)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.002296)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000868)[0m   [0mSHOW search_path[0m
+  [4;36;1mSQL (0.029553)[0m   [0;1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname IN ('$user','public')
+[0m
+  [4;35;1mSQL (0.015877)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mPK and serial sequence (0.017443)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mSQL (0.015358)[0m   [0m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'links'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m
+  [4;36;1mSQL (0.004801)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mPK and serial sequence (0.010840)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mSQL (0.026251)[0m   [0;1m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'visits'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000632)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001369)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000564)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000652)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001836)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000538)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000409)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.011294)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.173670)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001783)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000682)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000621)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004102)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001931)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.005505)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.011185)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mSQL (0.000618)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000560)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002107)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.001569)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.000622)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000720)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001666)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.018237)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.000583)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000316)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005194)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.001500)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.001298)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000632)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004395)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001510)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000627)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000705)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001793)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001728)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000569)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000565)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001998)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002392)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.004755)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'V9a') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.048838)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.001863)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/V9a', '2007-06-09 17:16:20.193493', 'V9a', 'http://www.google.com/', '2007-06-09 17:16:20.193493', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001285)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000679)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000592)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001673)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.004244)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002947)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'BOQ') LIMIT 1[0m
+  [4;35;1mLink Create (0.001541)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/BOQ', '2007-06-09 17:16:20.289967', 'BOQ', 'http://www.google.com/', '2007-06-09 17:16:20.289967', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001903)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000624)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000357)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002841)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002100)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.005345)[0m   [0mSELECT * FROM links WHERE (links."token" = 'Iue') LIMIT 1[0m
+  [4;36;1mLink Create (0.001580)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/Iue', '2007-06-09 17:16:20.657561', 'Iue', 'http://www.google.com/', '2007-06-09 17:16:20.657561', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001490)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.001727)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.004131)[0m   [0mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000841)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.003650)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000740)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001126)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001642)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000658)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000945)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.012317)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002070)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002541)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000962)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000603)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.013134)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001603)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.004746)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.003037)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.001800)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.002629)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000468)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002426)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001686)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.001050)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000660)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001653)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001743)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.000544)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002004)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002287)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000643)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001283)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001866)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001712)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000967)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000575)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001979)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002028)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.001028)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.002736)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002668)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002125)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.003473)[0m   [0mSELECT * FROM links WHERE (links."token" = 'EFH') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.010613)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.001672)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/EFH', '2007-06-09 17:16:48.684553', 'EFH', 'http://www.google.com/', '2007-06-09 17:16:48.684553', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001486)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000685)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000786)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001790)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002278)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002120)[0m   [0mSELECT * FROM links WHERE (links."token" = 'oTV') LIMIT 1[0m
+  [4;36;1mLink Create (0.012058)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/oTV', '2007-06-09 17:16:48.792259', 'oTV', 'http://www.google.com/', '2007-06-09 17:16:48.792259', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001089)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.001445)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000370)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002059)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001690)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002179)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'RFh') LIMIT 1[0m
+  [4;35;1mLink Create (0.001957)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/RFh', '2007-06-09 17:16:49.061390', 'RFh', 'http://www.google.com/', '2007-06-09 17:16:49.061390', '192.168.1.1')[0m
+  [4;36;1mSQL (0.003334)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.001832)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000596)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000592)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001379)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.001306)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.010319)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001519)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000895)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000605)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.013522)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002645)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002239)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000617)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.002289)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.011254)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001806)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.004565)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.003338)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.001660)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000549)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000403)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002202)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001695)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.001716)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mVisit Load (0.002148)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mSQL (0.000669)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000618)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002257)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001692)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.000519)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000350)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001634)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001439)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.003234)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000678)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001912)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002277)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000565)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000601)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004411)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002021)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000692)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.004040)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002114)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001406)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.003793)[0m   [0mSELECT * FROM links WHERE (links."token" = 'ljR') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.014528)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.002171)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/ljR', '2007-06-09 17:17:50.309611', 'ljR', 'http://www.google.com/', '2007-06-09 17:17:50.309611', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001548)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000615)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000601)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001714)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001915)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002492)[0m   [0mSELECT * FROM links WHERE (links."token" = '7NQ') LIMIT 1[0m
+  [4;36;1mLink Create (0.001566)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/7NQ', '2007-06-09 17:17:50.403326', '7NQ', 'http://www.google.com/', '2007-06-09 17:17:50.403326', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001359)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000829)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000414)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004169)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001844)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.003330)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'kZ7') LIMIT 1[0m
+  [4;35;1mLink Create (0.001812)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/kZ7', '2007-06-09 17:17:50.520141', 'kZ7', 'http://www.google.com/', '2007-06-09 17:17:50.520141', '192.168.1.1')[0m
+  [4;36;1mSQL (0.002527)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.002419)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000605)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000820)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001633)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.002111)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000815)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001521)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.002403)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000419)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.009877)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.001940)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001719)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000633)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000648)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002175)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001758)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.005228)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.005512)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.002515)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000680)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000444)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001685)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001577)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.001923)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mVisit Load (0.004935)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mSQL (0.000571)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000670)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.005435)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.003246)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.006640)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000663)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000358)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002029)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.001874)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000574)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000839)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001784)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002413)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000669)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001013)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002525)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001473)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000641)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000662)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002813)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001643)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002121)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'BDV') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.020010)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.001830)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/BDV', '2007-06-09 17:20:34.490371', 'BDV', 'http://www.google.com/', '2007-06-09 17:20:34.490371', '192.168.1.1')[0m
+  [4;35;1mSQL (0.002614)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000658)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000651)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002084)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002830)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002434)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '9Vo') LIMIT 1[0m
+  [4;35;1mLink Create (0.001564)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/9Vo', '2007-06-09 17:20:34.593239', '9Vo', 'http://www.google.com/', '2007-06-09 17:20:34.593239', '192.168.1.1')[0m
+  [4;36;1mSQL (0.000919)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000837)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000775)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001842)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001393)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.004496)[0m   [0mSELECT * FROM links WHERE (links."token" = 'H2V') LIMIT 1[0m
+  [4;36;1mLink Create (0.001694)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/H2V', '2007-06-09 17:20:34.701517', 'H2V', 'http://www.google.com/', '2007-06-09 17:20:34.701517', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001391)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.001798)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000934)[0m   [0mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000613)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001548)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.003626)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001064)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001964)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000575)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000427)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.012630)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002012)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.015171)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000952)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000740)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002507)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001858)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.005553)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.002375)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.002984)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000594)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000669)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.006770)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.002110)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.005846)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000780)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001352)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001674)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.003285)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.001969)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mVisit Load (0.002169)[0m   [0mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mSQL (0.000591)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000618)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.016711)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.001602)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.002488)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mSQL (0.000651)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000361)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002212)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001386)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000620)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.003079)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002104)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001987)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.001066)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001118)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001703)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002700)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000577)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000983)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002066)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001817)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002865)[0m   [0mSELECT * FROM links WHERE (links."token" = 'RjW') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.011415)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.001864)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/RjW', '2007-06-09 17:21:14.015131', 'RjW', 'http://www.google.com/', '2007-06-09 17:21:14.015131', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001702)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000815)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.002654)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.015256)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001596)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002301)[0m   [0mSELECT * FROM links WHERE (links."token" = 'TVH') LIMIT 1[0m
+  [4;36;1mLink Create (0.001564)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/TVH', '2007-06-09 17:21:14.113263', 'TVH', 'http://www.google.com/', '2007-06-09 17:21:14.113263', '192.168.1.1')[0m
+  [4;35;1mSQL (0.000913)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000673)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000313)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001883)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001964)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.394148)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'Fhx') LIMIT 1[0m
+  [4;35;1mLink Create (0.004228)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/Fhx', '2007-06-09 17:21:14.215839', 'Fhx', 'http://www.google.com/', '2007-06-09 17:21:14.215839', '192.168.1.1')[0m
+  [4;36;1mSQL (0.000816)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.002797)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.003367)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000594)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.144283)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000771)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000620)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001340)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000598)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000431)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.009260)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.003817)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001991)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001043)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000667)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001710)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001736)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.006102)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.002980)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.001743)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000712)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000620)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002067)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.004577)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.008729)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000597)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000603)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001974)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.003454)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.001760)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mVisit Load (0.002885)[0m   [0mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mSQL (0.000571)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000720)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001907)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.002938)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.002730)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mVisit Load (0.003323)[0m   [0mSELECT * FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000574)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001306)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001972)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.002118)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.003360)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mSQL (0.000561)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000436)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004593)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.004302)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000548)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000594)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001844)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002337)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000935)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000648)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004554)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001905)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.001029)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000607)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002375)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002881)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002690)[0m   [0mSELECT * FROM links WHERE (links."token" = 'dd5') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.018498)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.003214)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/dd5', '2007-06-09 17:22:51.666317', 'dd5', 'http://www.google.com/', '2007-06-09 17:22:51.666317', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001223)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.004512)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000691)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.003187)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001403)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002246)[0m   [0mSELECT * FROM links WHERE (links."token" = '6Tm') LIMIT 1[0m
+  [4;36;1mLink Create (0.008142)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/6Tm', '2007-06-09 17:22:51.795381', '6Tm', 'http://www.google.com/', '2007-06-09 17:22:51.795381', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001153)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000641)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000409)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.011857)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002170)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002084)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'k3l') LIMIT 1[0m
+  [4;35;1mLink Create (0.001619)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/k3l', '2007-06-09 17:22:52.075257', 'k3l', 'http://www.google.com/', '2007-06-09 17:22:52.075257', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001350)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.002317)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000593)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.001266)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002172)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000593)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000636)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005527)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000884)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000431)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.015318)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002048)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001975)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000666)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000657)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001995)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002259)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.020121)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.004179)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.001744)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000571)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000885)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001700)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.002511)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.007904)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000566)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000752)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002131)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.037691)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000599)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000893)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.016300)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.002834)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.010267)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mVisit Load (0.005195)[0m   [0mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mSQL (0.003176)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000643)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002519)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.001555)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.003598)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mVisit Load (0.006143)[0m   [0mSELECT * FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000739)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001069)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.003035)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mLink Load (0.001713)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mSQL (0.002574)[0m   [0;1mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mSQL (0.000557)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000346)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002299)[0m   [0mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.006559)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.001582)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000623)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002616)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001612)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000580)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000619)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002161)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001947)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000559)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000587)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002249)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001593)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002505)[0m   [0mSELECT * FROM links WHERE (links."token" = 'ioU') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.017463)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.002301)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/ioU', '2007-06-09 17:32:00.714121', 'ioU', 'http://www.google.com/', '2007-06-09 17:32:00.714121', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001549)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000678)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000708)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.003026)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001720)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002024)[0m   [0mSELECT * FROM links WHERE (links."token" = 'ot1') LIMIT 1[0m
+  [4;36;1mLink Create (0.003781)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/ot1', '2007-06-09 17:32:00.835437', 'ot1', 'http://www.google.com/', '2007-06-09 17:32:00.835437', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001025)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.001141)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000545)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001764)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001829)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002064)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'riA') LIMIT 1[0m
+  [4;35;1mLink Create (0.001612)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/riA', '2007-06-09 17:32:00.974037', 'riA', 'http://www.google.com/', '2007-06-09 17:32:00.974037', '192.168.1.1')[0m
+  [4;36;1mSQL (0.001169)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mLink Load (0.001773)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000537)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001426)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000817)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000601)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004439)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000612)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000621)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.012286)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.004923)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002183)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001033)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001673)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001999)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.004247)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.010784)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.003479)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.001718)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.016186)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000559)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002624)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.002209)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.008571)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000669)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000612)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002986)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001999)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001336)[0m   [0;1mSELECT count(*) AS count_all FROM visits [0m
+  [4;35;1mSQL (0.000565)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000441)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001898)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001967)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.002299)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mVisit Load (0.002352)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mSQL (0.000576)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000578)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004150)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002009)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.002842)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mVisit Load (0.002671)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mSQL (0.000540)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000762)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004499)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002348)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.003802)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.001734)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000330)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001688)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.004626)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000739)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000799)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002091)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001535)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000979)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000631)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005548)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001831)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000661)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001153)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005599)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001826)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.004704)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'jkQ') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.011524)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.002196)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/jkQ', '2007-06-09 17:32:25.732253', 'jkQ', 'http://www.google.com/', '2007-06-09 17:32:25.732253', '192.168.1.1')[0m
+  [4;35;1mSQL (0.004981)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.001867)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000647)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001922)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.004168)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.003009)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'MZl') LIMIT 1[0m
+  [4;35;1mLink Create (0.001552)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/MZl', '2007-06-09 17:32:25.851220', 'MZl', 'http://www.google.com/', '2007-06-09 17:32:25.851220', '192.168.1.1')[0m
+  [4;36;1mSQL (0.003113)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000946)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000349)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001887)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.005578)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.003914)[0m   [0mSELECT * FROM links WHERE (links."token" = '3en') LIMIT 1[0m
+  [4;36;1mLink Create (0.001773)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/3en', '2007-06-09 17:32:26.033755', '3en', 'http://www.google.com/', '2007-06-09 17:32:26.033755', '192.168.1.1')[0m
+  [4;35;1mSQL (0.000893)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.002456)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000608)[0m   [0mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.001088)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001802)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.001397)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000668)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.003589)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000548)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000471)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.013378)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002548)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.002121)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000851)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001077)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002056)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001727)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.006573)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.014022)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.003513)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000572)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000606)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.009787)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.002053)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.005116)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000574)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000624)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005441)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001886)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001303)[0m   [0;1mSELECT count(*) AS count_all FROM visits [0m
+  [4;35;1mSQL (0.000588)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000422)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002312)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002216)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.001833)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mVisit Load (0.003525)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mSQL (0.000575)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000644)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.004029)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001927)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.002950)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mVisit Load (0.002742)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mSQL (0.000764)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002392)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.001863)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.003372)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000551)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000319)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.004344)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.010614)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.001161)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000644)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.005644)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.002094)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000724)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000802)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.007444)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001487)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000592)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000911)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001744)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001542)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.001980)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'CCd') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.013670)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.002012)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/CCd', '2007-06-09 17:32:59.299308', 'CCd', 'http://www.google.com/', '2007-06-09 17:32:59.299308', '192.168.1.1')[0m
+  [4;35;1mSQL (0.003149)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.001493)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.001196)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002735)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.010563)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.003473)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'iP1') LIMIT 1[0m
+  [4;35;1mLink Create (0.002105)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/iP1', '2007-06-09 17:32:59.657907', 'iP1', 'http://www.google.com/', '2007-06-09 17:32:59.657907', '192.168.1.1')[0m
+  [4;36;1mSQL (0.000784)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000666)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001286)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.003089)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.002107)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002505)[0m   [0mSELECT * FROM links WHERE (links."token" = 'VKZ') LIMIT 1[0m
+  [4;36;1mLink Create (0.001567)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/VKZ', '2007-06-09 17:32:59.837805', 'VKZ', 'http://www.google.com/', '2007-06-09 17:32:59.837805', '192.168.1.1')[0m
+  [4;35;1mSQL (0.000775)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.002034)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000641)[0m   [0mROLLBACK[0m
+Spec::Rails::DSL::HelperEvalContextController: missing default helper path spec/rails/dsl/helper_eval_context_helper
+Spec::Rails::DSL::ViewExampleController: missing default helper path spec/rails/dsl/view_example_helper
+  [4;36;1mSQL (0.000527)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001806)[0m   [0mSELECT * FROM links [0m
+  [4;36;1mSQL (0.000543)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000571)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001220)[0m   [0;1mSELECT * FROM links [0m
+  [4;35;1mSQL (0.000645)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000465)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.012688)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.002276)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.004801)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.000666)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000690)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001643)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.003406)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.003965)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.002348)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1) [0m
+  [4;36;1mVisit Load (0.001999)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 1) [0m
+  [4;35;1mSQL (0.000794)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000655)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.003491)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mLink Load (0.002726)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mSQL (0.004154)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 1 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.000628)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000651)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.003551)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;35;1mLink Load (0.001739)[0m   [0mSELECT * FROM links WHERE (links."id" = 1) [0m
+  [4;36;1mSQL (0.001453)[0m   [0;1mSELECT count(*) AS count_all FROM visits [0m
+  [4;35;1mPK and serial sequence (0.013404)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mVisit Create (0.001867)[0m   [0;1mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-09 17:34:29.388852', '127.0.0.1')[0m
+  [4;35;1mSQL (0.001316)[0m   [0mSELECT currval('visits_id_seq')[0m
+  [4;36;1mSQL (0.001911)[0m   [0;1mSELECT count(*) AS count_all FROM visits [0m
+  [4;35;1mSQL (0.000652)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000449)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.001639)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002636)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.001850)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4) [0m
+  [4;36;1mVisit Load (0.004074)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4) [0m
+  [4;35;1mSQL (0.000720)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000631)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.003951)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002538)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.002758)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mVisit Load (0.004869)[0m   [0;1mSELECT * FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;35;1mSQL (0.001191)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.004078)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.035017)[0m   [0mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;36;1mLink Load (0.002874)[0m   [0;1mSELECT * FROM links WHERE (links."id" = 4) [0m
+  [4;35;1mSQL (0.002949)[0m   [0mSELECT count(*) AS count_all FROM visits WHERE (visits.link_id = 4 AND (flagged = 'spam')) [0m
+  [4;36;1mSQL (0.001036)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000361)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001862)[0m   [0;1mSELECT * FROM links WHERE (links.website_url IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.001542)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000543)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000637)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002392)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001476)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.001536)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000619)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.001818)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001549)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000546)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000608)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002115)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.001498)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002092)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'DAv') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.013777)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.002174)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/DAv', '2007-06-09 17:34:29.958507', 'DAv', 'http://www.google.com/', '2007-06-09 17:34:29.958507', '192.168.1.1')[0m
+  [4;35;1mSQL (0.000803)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000658)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000661)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.002112)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.018288)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.002463)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '44L') LIMIT 1[0m
+  [4;35;1mLink Create (0.002012)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/44L', '2007-06-09 17:34:30.064366', '44L', 'http://www.google.com/', '2007-06-09 17:34:30.064366', '192.168.1.1')[0m
+  [4;36;1mSQL (0.002379)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.001576)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000320)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.002602)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://www.google.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.001670)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.002488)[0m   [0mSELECT * FROM links WHERE (links."token" = '2wb') LIMIT 1[0m
+  [4;36;1mLink Create (0.001974)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://rubyurl.com/2wb', '2007-06-09 17:34:30.450237', '2wb', 'http://www.google.com/', '2007-06-09 17:34:30.450237', '192.168.1.1')[0m
+  [4;35;1mSQL (0.001396)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mLink Load (0.002239)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://www.google.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.002557)[0m   [0mROLLBACK[0m

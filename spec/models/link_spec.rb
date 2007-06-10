@@ -7,13 +7,13 @@ describe Link, "with fixtures loaded" do
     Link.find(:all).should_not be_empty
   end
   
-  it "should have three records" do
-    Link.should have(3).records
+  it "should have four records" do
+    Link.should have(4).records
   end
 end
 
 describe "Planet Argon link " do
-  fixtures :links
+  fixtures :links, :visits
   
   before(:each) do
     @link = Link.find(links(:planetargon).id)
@@ -21,6 +21,42 @@ describe "Planet Argon link " do
   
   it "should have a matching website url" do
     @link.website_url.should eql(links(:planetargon).website_url)
+  end
+  
+  it "should have two (2) visits" do
+    @link.should have(2).visits
+  end
+  
+  it "should not be flagged as spam" do
+    @link.flagged_as_spam?.should be_false
+  end
+  
+  it "should add a new visit with .add_visit" do
+    request = mock('request')
+    request.stub!(:remote_ip).and_return('127.0.0.1')
+    lambda do
+      @link.add_visit(request)
+    end.should change(Visit, :count).by(1)
+  end
+end
+
+describe "Spammer site" do
+  fixtures :links, :visits
+  
+  before(:each) do 
+    @link = Link.find(links(:spammer_site).id)
+  end
+  
+  it "should have one (1) visits" do
+    @link.should have(1).visits
+  end
+  
+  it "should have one flagged as spam visit" do
+    @link.should have(1).spam_visits
+  end
+  
+  it "should be flagged as spam" do
+    @link.flagged_as_spam?.should be_true    
   end
 end
 
@@ -76,3 +112,4 @@ describe "A new Link, which already exists" do
     new_link.should eql(@link)
   end
 end
+
