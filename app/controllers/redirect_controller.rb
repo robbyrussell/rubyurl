@@ -3,8 +3,13 @@ class RedirectController < ApplicationController
 
   def index
     @link = Link.find_by_token( params[:token] )
-    @link.add_visitor(request)
-    redirect_to :controller => 'go' if @link.nil?
+
+    unless @link.nil?
+      @link.add_visit(request)
+      redirect_to @link.website_url
+    else
+      redirect_to :controller => 'links', :action => 'invalid'
+    end
   end
   
   def top

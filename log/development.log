@@ -2805,3 +2805,1189 @@ ActionController::RoutingError (no route found to match "/stylesheets/img/bg.gif
 
 
 Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;36;1mSQL (0.024779)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.034430)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mPGError: ERROR: relation "schema_info" already exists
+: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000715)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateLinks (1)
+  [4;36;1mSQL (0.035057)[0m   [0;1mCREATE TABLE links ("id" serial primary key, "website_url" text DEFAULT NULL, "token" character varying(255) DEFAULT NULL, "permalink" character varying(255) DEFAULT NULL, "ip_address" character varying(255) DEFAULT NULL, "created_at" timestamp DEFAULT NULL, "updated_at" timestamp DEFAULT NULL) [0m
+  [4;35;1mSQL (0.004227)[0m   [0mCREATE INDEX "index_links_on_token" ON links ("token")[0m
+  [4;36;1mSQL (0.001239)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000264)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateVisits (2)
+  [4;36;1mSQL (0.009663)[0m   [0;1mCREATE TABLE visits ("id" serial primary key, "link_id" integer DEFAULT NULL, "referral_link" text DEFAULT NULL, "flagged" character varying(255) DEFAULT NULL, "ip_address" text DEFAULT NULL, "created_at" timestamp DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002911)[0m   [0mCREATE INDEX "index_visits_on_link_id" ON visits ("link_id")[0m
+  [4;36;1mSQL (0.002663)[0m   [0;1mCREATE INDEX "index_visits_on_flagged" ON visits ("flagged")[0m
+  [4;35;1mSQL (0.001087)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000379)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000225)[0m   [0mSHOW search_path[0m
+  [4;36;1mSQL (0.007997)[0m   [0;1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname IN ('"$user"','public')
+[0m
+  [4;35;1mSQL (0.005018)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mPK and serial sequence (0.006623)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mSQL (0.003143)[0m   [0m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'links'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m
+  [4;36;1mSQL (0.001077)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mPK and serial sequence (0.003695)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mSQL (0.002414)[0m   [0;1m SELECT i.relname, d.indisunique, a.attname
+ FROM pg_class t, pg_class i, pg_index d, pg_attribute a
+ WHERE i.relkind = 'i'
+ AND d.indexrelid = i.oid
+ AND d.indisprimary = 'f'
+ AND t.oid = d.indrelid
+ AND t.relname = 'visits'
+ AND a.attrelid = t.oid
+ AND ( d.indkey[0]=a.attnum OR d.indkey[1]=a.attnum
+ OR d.indkey[2]=a.attnum OR d.indkey[3]=a.attnum
+ OR d.indkey[4]=a.attnum OR d.indkey[5]=a.attnum
+ OR d.indkey[6]=a.attnum OR d.indkey[7]=a.attnum
+ OR d.indkey[8]=a.attnum OR d.indkey[9]=a.attnum )
+ ORDER BY i.relname
+[0m
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:10:00) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.010033)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00281)
+Rendered shared/_footer (0.00075)
+Completed in 0.04431 (22 reqs/sec) | Rendering: 0.00915 (20%) | DB: 0.01003 (22%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:10:06) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://yahoo.com"}}
+  [4;35;1mSQL (0.001233)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000991)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://yahoo.com') LIMIT 1[0m
+  [4;35;1mSQL (0.000170)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000310)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://yahoo.com') LIMIT 1[0m
+  [4;35;1mLink Load (0.000266)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000111)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000099)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000311)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://yahoo.com') LIMIT 1[0m
+  [4;35;1mLink Load (0.000228)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.000801)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'gXc') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.004576)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.027934)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://localhost:3000/gXc', '2007-06-26 22:10:06.422354', 'gXc', 'http://yahoo.com', '2007-06-26 22:10:06.422354', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000554)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000747)[0m   [0;1mCOMMIT[0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.00011)
+Completed in 0.05613 (17 reqs/sec) | Rendering: 0.00308 (5%) | DB: 0.03833 (68%) | 200 OK [http://localhost/links/new]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:10:09) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"gXc", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001485)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000601)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'gXc') LIMIT 1[0m
+
+
+NoMethodError (undefined method `add_visitor' for #<Link:0x3472220>):
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:1860:in `method_missing'
+    /app/controllers/redirect_controller.rb:6:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /opt/local/bin/mongrel_rails:16:in `load'
+    /opt/local/bin/mongrel_rails:16
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:10:26) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"gXc", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001517)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000855)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'gXc') LIMIT 1[0m
+  [4;35;1mSQL (0.001157)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mBEGIN[0m
+  [4;35;1mPK and serial sequence (0.003347)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mVisit Create (0.001210)[0m   [0;1mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:10:26.263062', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000294)[0m   [0mSELECT currval('visits_id_seq')[0m
+  [4;36;1mSQL (0.000499)[0m   [0;1mCOMMIT[0m
+Redirected to http://yahoo.com
+Completed in 0.02629 (38 reqs/sec) | DB: 0.01108 (42%) | 302 Found [http://localhost/gXc]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:10:32) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"gXc", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.003024)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000529)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'gXc') LIMIT 1[0m
+  [4;35;1mSQL (0.001068)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mBEGIN[0m
+  [4;35;1mPK and serial sequence (0.003289)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mVisit Create (0.000415)[0m   [0;1mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:10:32.023320', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000171)[0m   [0mSELECT currval('visits_id_seq')[0m
+  [4;36;1mSQL (0.000654)[0m   [0;1mCOMMIT[0m
+Redirected to http://yahoo.com
+Completed in 0.02460 (40 reqs/sec) | DB: 0.00927 (37%) | 302 Found [http://localhost/gXc]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:10:46) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"gXc", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.002096)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000471)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'gXc') LIMIT 1[0m
+  [4;35;1mSQL (0.001132)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mBEGIN[0m
+  [4;35;1mPK and serial sequence (0.003289)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mVisit Create (0.000304)[0m   [0;1mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:10:46.961996', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000169)[0m   [0mSELECT currval('visits_id_seq')[0m
+  [4;36;1mSQL (0.000813)[0m   [0;1mCOMMIT[0m
+Redirected to http://yahoo.com
+Completed in 0.02570 (38 reqs/sec) | DB: 0.00839 (32%) | 302 Found [http://localhost/gXc]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:10:51) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"gXc", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001438)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000649)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'gXc') LIMIT 1[0m
+  [4;35;1mSQL (0.001390)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000234)[0m   [0;1mBEGIN[0m
+  [4;35;1mPK and serial sequence (0.004021)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mVisit Create (0.000378)[0m   [0;1mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:10:51.116282', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000229)[0m   [0mSELECT currval('visits_id_seq')[0m
+  [4;36;1mSQL (0.136043)[0m   [0;1mCOMMIT[0m
+Redirected to http://yahoo.com
+Completed in 0.19131 (5 reqs/sec) | DB: 0.14438 (75%) | 302 Found [http://localhost/gXc]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:11:00) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;35;1mSQL (0.001819)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00174)
+Rendered shared/_footer (0.00008)
+Completed in 0.01304 (76 reqs/sec) | Rendering: 0.00351 (26%) | DB: 0.00182 (13%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:11:09) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://robbyrussell.com/"}}
+  [4;36;1mSQL (0.001189)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.000316)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://robbyrussell.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000130)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.000346)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://robbyrussell.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.000439)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000137)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.000288)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://robbyrussell.com/') LIMIT 1[0m
+  [4;36;1mLink Load (0.000229)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mLink Load (0.000371)[0m   [0mSELECT * FROM links WHERE (links."token" = 'FcJ') LIMIT 1[0m
+  [4;36;1mPK and serial sequence (0.004100)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;35;1mLink Create (0.001482)[0m   [0mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://localhost:3000/FcJ', '2007-06-26 22:11:09.628988', 'FcJ', 'http://robbyrussell.com/', '2007-06-26 22:11:09.628988', '127.0.0.1')[0m
+  [4;36;1mSQL (0.000351)[0m   [0;1mSELECT currval('links_id_seq')[0m
+  [4;35;1mSQL (0.000710)[0m   [0mCOMMIT[0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.00008)
+Completed in 0.02513 (39 reqs/sec) | Rendering: 0.00161 (6%) | DB: 0.01020 (40%) | 200 OK [http://localhost/links/new]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:11:11) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"FcJ", "action"=>"index", "controller"=>"redirect"}
+  [4;36;1mSQL (0.002566)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.000769)[0m   [0mSELECT * FROM links WHERE (links."token" = 'FcJ') LIMIT 1[0m
+  [4;36;1mSQL (0.001418)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000220)[0m   [0mBEGIN[0m
+  [4;36;1mPK and serial sequence (0.004599)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;35;1mVisit Create (0.000451)[0m   [0mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:11:11.720739', '127.0.0.1')[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSELECT currval('visits_id_seq')[0m
+  [4;35;1mSQL (0.000637)[0m   [0mCOMMIT[0m
+Redirected to http://robbyrussell.com/
+Completed in 0.03048 (32 reqs/sec) | DB: 0.01089 (35%) | 302 Found [http://localhost/FcJ]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:11:24) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"Fc34", "action"=>"index", "controller"=>"redirect"}
+  [4;36;1mSQL (0.001183)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.000438)[0m   [0mSELECT * FROM links WHERE (links."token" = 'Fc34') LIMIT 1[0m
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.add_visit):
+    /app/controllers/redirect_controller.rb:6:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /opt/local/bin/mongrel_rails:16:in `load'
+    /opt/local/bin/mongrel_rails:16
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:11:38) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"Fc34", "action"=>"index", "controller"=>"redirect"}
+  [4;36;1mSQL (0.001220)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.000412)[0m   [0mSELECT * FROM links WHERE (links."token" = 'Fc34') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.08615 (11 reqs/sec) | DB: 0.00325 (3%) | 302 Found [http://localhost/Fc34]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:11:38) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001483)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00237)
+Rendered shared/_footer (0.00013)
+Completed in 0.01593 (62 reqs/sec) | Rendering: 0.00495 (31%) | DB: 0.00148 (9%) | 200 OK [http://localhost/]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:14:01) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"234234", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001676)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000529)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '234234') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.01330 (75 reqs/sec) | DB: 0.00221 (16%) | 302 Found [http://localhost/234234]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:14:01) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;35;1mSQL (0.001191)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00164)
+Rendered shared/_footer (0.00008)
+Completed in 0.01193 (83 reqs/sec) | Rendering: 0.00334 (28%) | DB: 0.00119 (9%) | 200 OK [http://localhost/]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:14:08) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"234", "action"=>"index", "controller"=>"redirect"}
+  [4;36;1mSQL (0.001323)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.000417)[0m   [0mSELECT * FROM links WHERE (links."token" = '234') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.00990 (101 reqs/sec) | DB: 0.00174 (17%) | 302 Found [http://localhost/234]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:14:08) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001434)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00170)
+Rendered shared/_footer (0.00008)
+Completed in 0.01182 (84 reqs/sec) | Rendering: 0.00344 (29%) | DB: 0.00143 (12%) | 200 OK [http://localhost/]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:14:58) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"234", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001207)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000422)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '234') LIMIT 1[0m
+
+
+NameError (undefined local variable or method `invalid_link_url' for #<RedirectController:0x31bee84>):
+    /app/controllers/redirect_controller.rb:11:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /opt/local/bin/mongrel_rails:16:in `load'
+    /opt/local/bin/mongrel_rails:16
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:15:11) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"234", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001272)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000485)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '234') LIMIT 1[0m
+
+
+NameError (undefined local variable or method `invalid_links_path' for #<RedirectController:0x33a8344>):
+    /app/controllers/redirect_controller.rb:11:in `index'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /opt/local/bin/mongrel_rails:16:in `load'
+    /opt/local/bin/mongrel_rails:16
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:15:25) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"234", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001181)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000423)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '234') LIMIT 1[0m
+Redirected to http://localhost:3000/links/invalid
+Completed in 0.01003 (99 reqs/sec) | DB: 0.00499 (49%) | 302 Found [http://localhost/234]
+
+
+Processing LinksController#invalid (for 127.0.0.1 at 2007-06-26 22:15:25) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"invalid", "controller"=>"links"}
+Rendering  within layouts/application
+
+
+ActionController::MissingTemplate (Missing template /Users/robbyrussell/Projects/development/personal/rubyurl_2-0/trunk/config/../app/views/links/invalid.rhtml):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1205:in `assert_existence_of_template_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:804:in `render_file'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:711:in `render_with_no_layout'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/layout.rb:247:in `render_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /opt/local/bin/mongrel_rails:16:in `load'
+    /opt/local/bin/mongrel_rails:16
+
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:15:36) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"234", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001206)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mLink Load (0.000500)[0m   [0;1mSELECT * FROM links WHERE (links."token" = '234') LIMIT 1[0m
+Redirected to http://localhost:3000/links/invalid
+Completed in 0.01128 (88 reqs/sec) | DB: 0.00171 (15%) | 302 Found [http://localhost/234]
+
+
+Processing LinksController#invalid (for 127.0.0.1 at 2007-06-26 22:15:36) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"invalid", "controller"=>"links"}
+Rendering  within layouts/application
+Rendering links/invalid
+Rendered shared/_footer (0.00009)
+Completed in 0.00332 (301 reqs/sec) | Rendering: 0.00223 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/links/invalid]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:15:40) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;35;1mSQL (0.001228)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00197)
+Rendered shared/_footer (0.00009)
+Completed in 0.01217 (82 reqs/sec) | Rendering: 0.00374 (30%) | DB: 0.00123 (10%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:19:06) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001203)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000632)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00182)
+Rendered shared/_footer (0.00048)
+Completed in 0.01587 (63 reqs/sec) | Rendering: 0.00640 (40%) | DB: 0.00183 (11%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:19:16) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://robbyonrails.com/"}}
+  [4;36;1mSQL (0.001261)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000284)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+  [4;36;1mLink Load (0.000386)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://robbyonrails.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000123)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000288)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://robbyonrails.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.000232)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000114)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000140)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000344)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://robbyonrails.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.000381)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.000399)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'MrZ') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.003905)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.000400)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://localhost:3000/MrZ', '2007-06-26 22:19:16.188968', 'MrZ', 'http://robbyonrails.com/', '2007-06-26 22:19:16.188968', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000253)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000718)[0m   [0;1mCOMMIT[0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.00009)
+Completed in 0.02504 (39 reqs/sec) | Rendering: 0.00162 (6%) | DB: 0.00923 (36%) | 200 OK [http://localhost/links/new]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:19:18) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"MrZ", "action"=>"index", "controller"=>"redirect"}
+  [4;35;1mSQL (0.001552)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000760)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+  [4;35;1mLink Load (0.001032)[0m   [0mSELECT * FROM links WHERE (links."token" = 'MrZ') LIMIT 1[0m
+  [4;36;1mSQL (0.001291)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000124)[0m   [0mBEGIN[0m
+  [4;36;1mPK and serial sequence (0.003008)[0m   [0;1m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;35;1mVisit Create (0.000347)[0m   [0mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:19:18.619877', '127.0.0.1')[0m
+  [4;36;1mSQL (0.000168)[0m   [0;1mSELECT currval('visits_id_seq')[0m
+  [4;35;1mSQL (0.000750)[0m   [0mCOMMIT[0m
+Redirected to http://robbyonrails.com/
+Completed in 0.02603 (38 reqs/sec) | DB: 0.00903 (34%) | 302 Found [http://localhost/MrZ]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:19:21) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001196)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000273)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00169)
+Rendered shared/_footer (0.00010)
+Completed in 0.01302 (76 reqs/sec) | Rendering: 0.00368 (28%) | DB: 0.00147 (11%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:20:07) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://microsoft.com/"}}
+  [4;36;1mSQL (0.001254)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000283)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+  [4;36;1mLink Load (0.000408)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://microsoft.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000130)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000411)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://microsoft.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.000243)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000105)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000266)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://microsoft.com/') LIMIT 1[0m
+  [4;35;1mLink Load (0.000285)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.000399)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'JWt') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.003084)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.000370)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://localhost:3000/JWt', '2007-06-26 22:20:07.461185', 'JWt', 'http://microsoft.com/', '2007-06-26 22:20:07.461185', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000203)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000922)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000303)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.00010)
+Completed in 0.02447 (40 reqs/sec) | Rendering: 0.00177 (7%) | DB: 0.00879 (35%) | 200 OK [http://localhost/links/new]
+RedirectController: missing default helper path redirect_helper
+
+
+Processing RedirectController#index (for 127.0.0.1 at 2007-06-26 22:20:09) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"token"=>"JWt", "action"=>"index", "controller"=>"redirect"}
+  [4;36;1mSQL (0.001434)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000496)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+  [4;36;1mLink Load (0.000526)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'JWt') LIMIT 1[0m
+  [4;35;1mSQL (0.001210)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'visits'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mBEGIN[0m
+  [4;35;1mPK and serial sequence (0.003183)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'visits'::regclass
+[0m
+  [4;36;1mVisit Create (0.000361)[0m   [0;1mINSERT INTO visits ("link_id", "flagged", "referral_link", "created_at", "ip_address") VALUES(NULL, NULL, NULL, '2007-06-26 22:20:09.362814', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000172)[0m   [0mSELECT currval('visits_id_seq')[0m
+  [4;36;1mSQL (0.000675)[0m   [0;1mCOMMIT[0m
+Redirected to http://microsoft.com/
+Completed in 0.02624 (38 reqs/sec) | DB: 0.00821 (31%) | 302 Found [http://localhost/JWt]
+  [4;36;1mSQL (0.007787)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mLink Load (0.000951)[0m   [0mSELECT * FROM links WHERE (links."id" = 2) [0m
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:27:20) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://microsoft.com/"}}
+  [4;35;1mSQL (0.001318)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+  [4;35;1mLink Load (0.000363)[0m   [0mSELECT * FROM links WHERE (links."website_url" = 'http://microsoft.com/') LIMIT 1[0m
+  [4;36;1mSQL (0.000235)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.000490)[0m   [0mSELECT * FROM links WHERE (links.website_url = 'http://microsoft.com/' AND links.id <> 4) LIMIT 1[0m
+  [4;36;1mLink Load (0.000368)[0m   [0;1mSELECT * FROM links WHERE (links.token = 'JWt' AND links.id <> 4) LIMIT 1[0m
+  [4;35;1mLink Update (0.000581)[0m   [0mUPDATE links SET "created_at" = '2007-06-26 22:20:07.461185', "token" = 'JWt', "website_url" = 'http://microsoft.com/', "permalink" = 'http://localhost:3000/JWt', "ip_address" = '127.0.0.1', "updated_at" = '2007-06-26 22:27:20.731319' WHERE "id" = 4[0m
+  [4;36;1mSQL (0.000625)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000274)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.00010)
+Completed in 0.01975 (50 reqs/sec) | Rendering: 0.00269 (13%) | DB: 0.00469 (23%) | 200 OK [http://localhost/links/new]
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:27:25) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>"http://microsoft.com/"}}
+  [4;36;1mSQL (0.001698)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000287)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+  [4;36;1mLink Load (0.000447)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'http://microsoft.com/') LIMIT 1[0m
+  [4;35;1mSQL (0.000116)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000376)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'http://microsoft.com/' AND links.id <> 4) LIMIT 1[0m
+  [4;35;1mLink Load (0.000444)[0m   [0mSELECT * FROM links WHERE (links.token = 'JWt' AND links.id <> 4) LIMIT 1[0m
+  [4;36;1mLink Update (0.000443)[0m   [0;1mUPDATE links SET "created_at" = '2007-06-26 22:20:07.461185', "token" = 'JWt', "website_url" = 'http://microsoft.com/', "permalink" = 'http://localhost:3000/JWt', "ip_address" = '127.0.0.1', "updated_at" = '2007-06-26 22:27:25.156963' WHERE "id" = 4[0m
+  [4;35;1mSQL (0.000672)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000409)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+Rendering actionshowlayoutfalse within layouts/application
+Rendering links/show
+Rendered shared/_footer (0.00012)
+Completed in 0.01912 (52 reqs/sec) | Rendering: 0.00220 (11%) | DB: 0.00489 (25%) | 200 OK [http://localhost/links/new]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-26 22:27:29) [GET]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;35;1mSQL (0.001180)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000514)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00170)
+Rendered shared/_footer (0.00009)
+Completed in 0.01299 (76 reqs/sec) | Rendering: 0.00346 (26%) | DB: 0.00169 (13%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#new (for 127.0.0.1 at 2007-06-26 22:27:35) [POST]
+  Session ID: 9e75fd6c053b17f37724864a854cfdfe
+  Parameters: {"commit"=>"Go!", "action"=>"new", "controller"=>"links", "link"=>{"website_url"=>""}}
+  [4;35;1mSQL (0.001189)[0m   [0m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;36;1mSQL (0.000323)[0m   [0;1mSELECT count(*) AS count_all FROM links [0m
+  [4;35;1mLink Load (0.000534)[0m   [0mSELECT * FROM links WHERE (links."website_url" = '') LIMIT 1[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.000325)[0m   [0mSELECT * FROM links WHERE (links.website_url = '') LIMIT 1[0m
+  [4;36;1mLink Load (0.000307)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000144)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000127)[0m   [0;1mBEGIN[0m
+  [4;35;1mLink Load (0.000534)[0m   [0mSELECT * FROM links WHERE (links.website_url = '') LIMIT 1[0m
+  [4;36;1mLink Load (0.000367)[0m   [0;1mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000123)[0m   [0mCOMMIT[0m
+Rendering  within layouts/application
+Rendering links/new
+Rendered links/_form (0.00155)
+Rendered shared/_footer (0.00009)
+Completed in 0.01988 (50 reqs/sec) | Rendering: 0.00418 (21%) | DB: 0.00409 (20%) | 200 OK [http://localhost/links/new]

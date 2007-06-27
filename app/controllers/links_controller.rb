@@ -5,12 +5,14 @@ class LinksController < ApplicationController
     @link.ip_address = request.remote_ip if @link.new_record?
     
     if @link.save
+      calculate_links # application controller
       render :action => :show
     else
       flash[:warning] = 'There was an issue trying to create your RubyURL.'
     end
   end
   
-  def show
+  def invalid
+    
   end
 end

@@ -1,7 +1,19 @@
 <div>
-  You provided: <%= @link.website_url -%>
+  Here is your rubyURL
 </div>
 
 <div>
-  We returned: <%= link_to @link.permalink, @link.permalink %>
+  <%= link_to @link.permalink, @link.permalink -%>
+</div>
+
+<div>
+  Original URL Length: <%= @link.website_url.length -%>
+  <br />
+  rubyURL Length: <%= @link.permalink.length -%>
+  <br />
+  shortened by: <%= @link.website_url.length - @link.permalink.length -%>
+</div>
+
+<div>
+  <%= link_to 'Create another rubyurl', '/' -%>
 </div>
