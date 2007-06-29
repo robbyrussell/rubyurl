@@ -2805,6 +2805,25 @@ ActionController::RoutingError (no route found to match "/stylesheets/img/bg.gif
 
 
 Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+<<<<<<< .mine
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-19 23:20:50) [GET]
+  Session ID: e3bf2c605b9d7275c3ab59cc64a42647
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001485)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00161)
+Rendered shared/_footer (0.00008)
+Completed in 0.01145 (87 reqs/sec) | Rendering: 0.00326 (28%) | DB: 0.00149 (12%) | 200 OK [http://localhost/]
+=======
   [4;36;1mSQL (0.024779)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
   [4;35;1mSQL (0.034430)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
   [4;36;1mSQL (0.000000)[0m   [0;1mPGError: ERROR: relation "schema_info" already exists
@@ -4302,3 +4321,175 @@ Rendering go/api
 Rendered shared/_header (0.00011)
 Rendered shared/_footer (0.00008)
 Completed in 0.01159 (86 reqs/sec) | Rendering: 0.00176 (15%) | DB: 0.00167 (14%) | 200 OK [http://localhost/api]
+>>>>>>> .r25
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 21:54:31) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.551412)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.072234)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00971)
+Rendered shared/_header (0.00085)
+Rendered shared/_footer (0.00059)
+Completed in 1.34955 (0 reqs/sec) | Rendering: 0.03418 (2%) | DB: 0.62365 (46%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 21:57:15) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001421)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000280)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00163)
+Rendered shared/_header (0.00011)
+Rendered shared/_footer (0.00008)
+Completed in 0.01231 (81 reqs/sec) | Rendering: 0.00369 (29%) | DB: 0.00170 (13%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 21:59:39) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001459)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000280)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00163)
+Rendered shared/_header (0.00010)
+Rendered shared/_footer (0.00009)
+Completed in 0.07396 (13 reqs/sec) | Rendering: 0.00591 (7%) | DB: 0.00174 (2%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 22:00:04) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001441)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000290)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00198)
+Rendered shared/_header (0.00010)
+Rendered shared/_footer (0.00009)
+Completed in 0.01307 (76 reqs/sec) | Rendering: 0.00410 (31%) | DB: 0.00173 (13%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 22:00:29) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001471)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000305)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00160)
+Rendered shared/_header (0.00011)
+Rendered shared/_footer (0.00009)
+Completed in 0.01255 (79 reqs/sec) | Rendering: 0.00376 (29%) | DB: 0.00178 (14%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 22:01:08) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001501)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000402)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00158)
+Rendered shared/_header (0.00010)
+Rendered shared/_footer (0.00009)
+Completed in 0.01306 (76 reqs/sec) | Rendering: 0.00368 (28%) | DB: 0.00190 (14%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 22:01:47) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001392)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000294)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00157)
+Rendered shared/_header (0.00010)
+Rendered shared/_footer (0.00008)
+Completed in 0.01229 (81 reqs/sec) | Rendering: 0.00356 (28%) | DB: 0.00169 (13%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 22:03:58) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001455)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000301)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00167)
+Rendered shared/_header (0.00011)
+Rendered shared/_footer (0.00008)
+Completed in 0.07965 (12 reqs/sec) | Rendering: 0.00599 (7%) | DB: 0.00176 (2%) | 200 OK [http://localhost/]
+
+
+Processing GoController#index (for 127.0.0.1 at 2007-06-28 22:04:32) [GET]
+  Session ID: 2b3895c8b806381e10597ff1b859ddc8
+  Parameters: {"action"=>"index", "controller"=>"go"}
+  [4;36;1mSQL (0.001386)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000307)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering go/index
+Rendered links/_form (0.00166)
+Rendered shared/_header (0.00011)
+Rendered shared/_footer (0.00009)
+Completed in 0.01537 (65 reqs/sec) | Rendering: 0.00603 (39%) | DB: 0.00169 (11%) | 200 OK [http://localhost/]

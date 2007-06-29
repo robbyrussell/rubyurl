@@ -6,44 +6,48 @@
 	<title>RubyURL &raquo; <%= (title = yield :title) ? title : 'Happy URLS for Happy Developers' %></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="description" content="description goes here" />
-    <meta name="keywords" content="keywords go here" />
-    <meta http-equiv="Content-Language" content="en-us" />
-    <meta name="ROBOTS" content="ALL" />
-    <meta http-equiv="imagetoolbar" content="false" />
-    <meta name="MSSmartTagsPreventParsing" content="true" />
-<%= stylesheet_link_tag "master" %>
-	
+	<meta name="keywords" content="keywords go here" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta name="ROBOTS" content="ALL" />
+	<meta http-equiv="imagetoolbar" content="false" />
+	<meta name="MSSmartTagsPreventParsing" content="true" />
+
+	<%= stylesheet_link_tag "reset" %>
+	<%= stylesheet_link_tag "master" %>
+
 	<%= javascript_include_tag :defaults %>	
 </head>
 
 <body>
 	<div id="wrapper">
 		<div id="header">
-		  <%= render :partial => 'shared/header' %>
+			<%= render :partial => 'shared/header' %>
 		</div>
+		<div id="primary_content">
 			<% if flash[:notice] %>
-				<div id="flash_notice" class="flash">
-					<p><%= flash[:notice] %></p>
-				</div>
+			<div id="flash_notice" class="flash">
+				<p><%= flash[:notice] %></p>
+			</div>
 			<% end %>
 
 			<% if flash[:message] %>
-				<div id="flash_message" class="flash">
-					<p><%= flash[:message] %></p>
-				</div>
+			<div id="flash_message" class="flash">
+				<p><%= flash[:message] %></p>
+			</div>
 			<% end %>
 
 			<% if flash[:warning] %>
-				<div id="flash_warning" class="flash">
-					<p><%= flash[:warning] %></p>
-				</div>
+			<div id="flash_warning" class="flash">
+				<p><%= flash[:warning] %></p>
+			</div>
 			<% end %>
-		<!-- end flash -->
+			<!-- end flash -->
 			<%= yield %>
-		<div id="footer">
-			<%= render :partial => 'shared/footer' %>
-		</div> <!-- end footer -->
+			<div id="footer">
+				<%= render :partial => 'shared/footer' %>
+			</div> <!-- end footer -->
+		</div><!-- end primary_content -->
 	</div><!-- end wrapper -->
-			
+
 </body>
 </html>
