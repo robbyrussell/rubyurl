@@ -16,3 +16,25 @@ describe LinksController do
     end.should change(Link, :count).by(1)
   end
 end
+
+describe LinksController, "redirect routing" do
+  it "should route to the redirect action in LinksController" do
+    assert_routing '/abc', { :controller => 'links', :action => 'redirect', :token => 'abc' }
+  end
+end
+
+describe LinksController, "redirect with token" do
+  
+  before(:each) do
+    @link = mock( 'link' )
+    Link.should_receive( :find_by_token ).with( 'abc' ).and_return( @link )
+    @link.stub!( :add_visit )
+    @link.should_receive( :website_url ).and_return( 'http://google.com/' )
+    get :redirect, :token => 'abc'    
+  end
+  
+  it "should call redirected to a website when passed a token" do
+    response.should redirect_to( 'http://google.com/' )
+  end
+end
+
