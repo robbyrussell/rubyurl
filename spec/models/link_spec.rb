@@ -82,14 +82,14 @@ describe Link, "a new link" do
     @link.should be_valid
   end
   
-  it "should generate a token upon save" do
+  it "should generate a token when saved" do
     @link.attributes = valid_attributes
     @link.token.should be_nil
     @link.save.should be_true
     @link.token.should_not be_nil
   end
   
-  it "should generate a permalink upon create" do
+  it "should generate a permalink when created" do
     @link.attributes = valid_attributes
     @link.permalink.should be_nil
     @link.save.should be_true
