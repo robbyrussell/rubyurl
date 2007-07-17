@@ -11,10 +11,6 @@ class LinksController < ApplicationController
       flash[:warning] = 'There was an issue trying to create your RubyURL.'
     end
   end
-  
-  def invalid
-    
-  end
 
   def redirect
     @link = Link.find_by_token( params[:token] )
