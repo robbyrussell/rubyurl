@@ -1,3 +1,0 @@
-class GoController < ApplicationController
-
-end
