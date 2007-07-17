@@ -4,7 +4,7 @@ class LinksController < ApplicationController
     @link = Link.new
   end
 
-  def new
+  def create
     @link = Link.find_or_create_by_website_url( params[:link][:website_url] )
     @link.ip_address = request.remote_ip if @link.new_record?
     
