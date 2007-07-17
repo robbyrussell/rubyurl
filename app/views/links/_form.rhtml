@@ -1,4 +1,4 @@
-<% form_for :link, @link, :url => {:controller => :links ,:action => 'new'}  do |f| %>
+<% form_for :link, @link, :url => {:controller => :links ,:action => 'create'}  do |f| %>
   <label for="link_website_url">Website URL</label>
   <%= f.text_field :website_url %>
   
