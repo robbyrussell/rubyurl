@@ -1,1 +1,11 @@
-<%= render :partial => 'links/form' %>
+<div id="app_content">
+	<h1>Create a RubyURL</h1>
+	<div id="url">
+		<%= render :partial => 'links/form' %>
+	</div>
+	<h2>Add RubyURL to your favorite browser</h2>
+	<p>Just drag the link below to the bookmarks toolbar of your browser and create rubyURLs on the fly!</p>
+	<div id="action">
+		<a href="javascript:void(location.href='http://rubyurl.com/rubyurl/remote?website_url='+location.href)">RubyURL this Link</a>
+	</div>
+</div><!-- end app_content -->
