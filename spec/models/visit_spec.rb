@@ -9,3 +9,4 @@ describe Visit do
     @visit.should be_valid
   end
 end
+
