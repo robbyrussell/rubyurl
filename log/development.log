@@ -7910,3 +7910,197 @@ Rendered links/_form (0.00161)
 Rendered shared/_header (0.00015)
 Rendered shared/_footer (0.00010)
 Completed in 0.01289 (77 reqs/sec) | Rendering: 0.00375 (29%) | DB: 0.00185 (14%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#index (for 127.0.0.1 at 2007-08-06 00:29:38) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"index", "controller"=>"links"}
+  [4;36;1mSQL (0.001413)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000303)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/index
+Rendered links/_form (0.00157)
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00010)
+Completed in 0.01252 (79 reqs/sec) | Rendering: 0.00362 (28%) | DB: 0.00172 (13%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#about (for 127.0.0.1 at 2007-08-06 00:29:40) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"about", "controller"=>"links"}
+  [4;36;1mSQL (0.001406)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000306)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/about
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00015)
+Completed in 0.01059 (94 reqs/sec) | Rendering: 0.00195 (18%) | DB: 0.00171 (16%) | 200 OK [http://localhost/about]
+
+
+Processing LinksController#about (for 127.0.0.1 at 2007-08-06 00:30:08) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"about", "controller"=>"links"}
+  [4;36;1mSQL (0.001798)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000305)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/about
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00010)
+Completed in 0.07730 (12 reqs/sec) | Rendering: 0.00194 (2%) | DB: 0.00210 (2%) | 200 OK [http://localhost/about]
+
+
+Processing LinksController#index (for 127.0.0.1 at 2007-08-06 00:30:34) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"index", "controller"=>"links"}
+  [4;36;1mSQL (0.001432)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000303)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/index
+Rendered links/_form (0.00159)
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00010)
+Completed in 0.01239 (80 reqs/sec) | Rendering: 0.00367 (29%) | DB: 0.00174 (13%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#create (for 127.0.0.1 at 2007-08-06 00:30:38) [POST]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"commit"=>"Go!", "action"=>"create", "controller"=>"links", "link"=>{"website_url"=>"la.com"}}
+  [4;36;1mSQL (0.001413)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000303)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+  [4;36;1mLink Load (0.000491)[0m   [0;1mSELECT * FROM links WHERE (links."website_url" = 'la.com') LIMIT 1[0m
+  [4;35;1mSQL (0.000125)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000353)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'la.com') LIMIT 1[0m
+  [4;35;1mLink Load (0.000293)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000122)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000116)[0m   [0mBEGIN[0m
+  [4;36;1mLink Load (0.000331)[0m   [0;1mSELECT * FROM links WHERE (links.website_url = 'la.com') LIMIT 1[0m
+  [4;35;1mLink Load (0.000302)[0m   [0mSELECT * FROM links WHERE (links.token IS NULL) LIMIT 1[0m
+  [4;36;1mLink Load (0.000459)[0m   [0;1mSELECT * FROM links WHERE (links."token" = 'Mhs') LIMIT 1[0m
+  [4;35;1mPK and serial sequence (0.003427)[0m   [0m SELECT attr.attname, name.nspname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relnamespace = name.oid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = 'links'::regclass
+[0m
+  [4;36;1mLink Create (0.000663)[0m   [0;1mINSERT INTO links ("permalink", "updated_at", "token", "website_url", "created_at", "ip_address") VALUES('http://localhost:3000/Mhs', '2007-08-06 00:30:38.572486', 'Mhs', 'la.com', '2007-08-06 00:30:38.572486', '127.0.0.1')[0m
+  [4;35;1mSQL (0.000184)[0m   [0mSELECT currval('links_id_seq')[0m
+  [4;36;1mSQL (0.000991)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000453)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering layoutfalseactionshow within layouts/application
+Rendering links/show
+Rendered shared/_header (0.00020)
+Rendered shared/_footer (0.00013)
+Completed in 0.02515 (39 reqs/sec) | Rendering: 0.00265 (10%) | DB: 0.01003 (39%) | 200 OK [http://localhost/links/create]
+
+
+Processing LinksController#api (for 127.0.0.1 at 2007-08-06 00:30:43) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"api", "controller"=>"links"}
+  [4;36;1mSQL (0.001420)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000312)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/api
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00010)
+Completed in 0.01059 (94 reqs/sec) | Rendering: 0.00189 (17%) | DB: 0.00173 (16%) | 200 OK [http://localhost/api]
+
+
+Processing LinksController#about (for 127.0.0.1 at 2007-08-06 00:30:46) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"about", "controller"=>"links"}
+  [4;36;1mSQL (0.001671)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000340)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/about
+Rendered shared/_header (0.00016)
+Rendered shared/_footer (0.00010)
+Completed in 0.01181 (84 reqs/sec) | Rendering: 0.00209 (17%) | DB: 0.00201 (17%) | 200 OK [http://localhost/about]
+
+
+Processing LinksController#index (for 127.0.0.1 at 2007-08-06 00:30:48) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"index", "controller"=>"links"}
+  [4;36;1mSQL (0.001445)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000320)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/index
+Rendered links/_form (0.00164)
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00010)
+Completed in 0.07813 (12 reqs/sec) | Rendering: 0.00373 (4%) | DB: 0.00176 (2%) | 200 OK [http://localhost/]
+
+
+Processing LinksController#report (for 127.0.0.1 at 2007-08-06 00:30:50) [GET]
+  Session ID: 96e3ad48acf89077fe1abfd279f19697
+  Parameters: {"action"=>"report", "controller"=>"links"}
+  [4;36;1mSQL (0.001397)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000296)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/report
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00010)
+Completed in 0.01060 (94 reqs/sec) | Rendering: 0.00196 (18%) | DB: 0.00169 (15%) | 200 OK [http://localhost/report-abuse]
