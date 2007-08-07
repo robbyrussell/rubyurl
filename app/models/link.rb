@@ -23,11 +23,6 @@ class Link < ActiveRecord::Base
   private
   
     def generate_token
-      if self.token and self.class.find_by_token(self.token).nil?
-        build_permalink      
-        return true
-      end
-        
       if (temp_token = random_token) and self.class.find_by_token(temp_token).nil?
         self.token = temp_token
         build_permalink
