@@ -1,0 +1,25 @@
+#!/usr/bin/ruby
+require File.dirname(__FILE__) + '/../config/environment'
+
+class Rubyurl < ActiveRecord::Base
+end
+
+@old_links = Rubyurl.find(:all)
+
+@count = 0
+
+@old_links.each do |old_link|
+  # create new link
+  
+  @link = Link.find_or_create_by_website_url( old_link.website_url )
+  @link.ip_address = '0.0.0.0'
+  
+  if @link.save  
+    @count += 1
+    puts "saved ##{@count}"   
+  else
+    puts @link.errors.to_yaml
+    puts  "unable to save #{@link.website_url}"
+  end
+end
+
