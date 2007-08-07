@@ -15,6 +15,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect '', :controller => 'links'
   
+  map.connect 'rubyurl/remote', :controller => 'links', :action => 'create'
+  
   map.connect 'about', :controller => 'links', :action => 'about'
   map.connect 'api', :controller => 'links', :action => 'api'
   map.connect 'report-abuse', :controller => 'links', :action => 'report'
