@@ -9319,3 +9319,21 @@ Rendering links/about
 Rendered shared/_header (0.00016)
 Rendered shared/_footer (0.00010)
 Completed in 0.01084 (92 reqs/sec) | Rendering: 0.00207 (19%) | DB: 0.00167 (15%) | 200 OK [http://localhost/about]
+
+
+Processing LinksController#about (for 127.0.0.1 at 2007-08-07 11:00:32) [GET]
+  Session ID: 54e5dd7e5d1996eda003c575e509ebe0
+  Parameters: {"action"=>"about", "controller"=>"links"}
+  [4;36;1mSQL (0.001448)[0m   [0;1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = 'links'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [4;35;1mSQL (0.000283)[0m   [0mSELECT count(*) AS count_all FROM links [0m
+Rendering  within layouts/application
+Rendering links/about
+Rendered shared/_header (0.00015)
+Rendered shared/_footer (0.00012)
+Completed in 0.01085 (92 reqs/sec) | Rendering: 0.00216 (19%) | DB: 0.00173 (15%) | 200 OK [http://localhost/about]
