@@ -6,7 +6,7 @@ class Link < ActiveRecord::Base
   
   validates_presence_of :website_url, :ip_address
   validates_uniqueness_of :website_url, :token  
-  validates_format_of :website_url, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix, :on => :create, :message => 'needs to have http(s):// in front of it', :if => Proc.new { |p| p.website_url? }
+  validates_format_of :website_url, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix, :on => :save, :message => 'needs to have http(s):// in front of it', :if => Proc.new { |p| p.website_url? }
   
   before_create :generate_token
   
