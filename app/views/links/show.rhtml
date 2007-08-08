@@ -19,6 +19,6 @@
 	</div>
 </div><!-- end app_content -->
 
-<% content_for :rubyurl_link %>
+<% content_for :rubyurl_link do %>
   <%= link_to @link.permalink, @link.permalink -%>
 <% end %>
