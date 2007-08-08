@@ -18,29 +18,12 @@
 </head>
 
 <body>
-	<% if flash[:notice] %>
-	<div id="flash_notice" class="flash">
-		<p><%= flash[:notice] %></p>
-	</div>
-	<% end %>
-
-	<% if flash[:message] %>
-	<div id="flash_message" class="flash">
-		<p><%= flash[:message] %></p>
-	</div>
-	<% end %>
-
-	<% if flash[:warning] %>
-	<div id="flash_warning" class="flash">
-		<p><%= flash[:warning] %></p>
-	</div>
-	<% end %>
 	<!-- end flash -->
 	<div id="wrapper">
 		<div id="header">
 			<%= render :partial => 'shared/header' %>
-		</div> <!-- end header -->
-			<%= yield %>
+		</div> <!-- end header -->	
+			<%= yield %>		
 		<dl id="tos">
 			<dt>Terms of Use:</dt> 
 			<dd>RubyURL was created as a free service to make posting long URLs easier. If you use it for spamming or illegal purposes, your RubyURL will be disabled. This service is provided without warranty of any kind.</dd>

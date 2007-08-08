@@ -14,6 +14,7 @@ class LinksController < ApplicationController
       render :action => :show
     else
       flash[:warning] = 'There was an issue trying to create your RubyURL.'
+      redirect_to :action => :invalid
     end
   end
 

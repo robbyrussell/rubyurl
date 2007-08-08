@@ -113,3 +113,14 @@ describe "A new Link, which already exists" do
   end
 end
 
+describe "A new link" do
+  include LinkSpecHelper    
+  
+  it "should not save when provided a URL without http://" do
+    @link = Link.new
+    @link.attributes = valid_attributes.except(:website_url)
+    @link.website_url = 'google.com'
+    @link.should have(1).error_on(:website_url)
+  end
+end
+

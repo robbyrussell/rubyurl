@@ -1,5 +1,6 @@
 <div id="app_content">
 	<h1>Create a RubyURL</h1>
+	<% if flash[:warning] %><%= flash[:warning] -%><% end %>	
 	<div id="url">
 		<%= render :partial => 'links/form' %>
 	</div>
