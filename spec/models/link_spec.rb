@@ -122,5 +122,19 @@ describe "A new link" do
     @link.website_url = 'google.com'
     @link.should have(1).error_on(:website_url)
   end
+  
+  it "should save a link without a .com/.net/.org/etc." do
+    @link = Link.new
+    @link.attributes = valid_attributes.except(:website_url)
+    @link.website_url = 'http://hamster-style/'
+    @link.should have(0).errors_on(:website_url)
+  end
+
+  it "should save a link with query string parameters" do
+    @link = Link.new
+    @link.attributes = valid_attributes.except(:website_url)
+    @link.website_url = 'http://hamsterstyle.com/foo?x=1'
+    @link.should have(0).errors_on(:website_url)
+  end    
 end
 
