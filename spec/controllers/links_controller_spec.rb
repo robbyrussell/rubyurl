@@ -1,5 +1,23 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+describe LinksController, "index action" do
+  controller_name :links
+  
+  before(:each) do
+    @link = mock('link')
+    Link.stub!(:new).and_return(@link)    
+    get :index
+  end
+  
+  it "should render the index view" do
+    response.should render_template('links/index')
+  end
+
+  it "should instantiate a new link variable" do
+    assigns[:link].should equal(@link)
+  end  
+end
+
 describe LinksController do
   include LinkSpecHelper
 
@@ -18,8 +36,15 @@ describe LinksController do
 end
 
 describe LinksController, "redirect routing" do
+  controller_name :links
+  
   it "should route to the redirect action in LinksController" do
     assert_routing '/abc', { :controller => 'links', :action => 'redirect', :token => 'abc' }
+  end
+  
+  it "should redirect to the invalid page when the token is invalid" do
+    get :redirect, :token => 'magoo'
+    response.should redirect_to( :action => 'invalid' )
   end
 end
 
