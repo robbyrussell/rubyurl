@@ -7,6 +7,6 @@
 	<h2>Add RubyURL to your favorite browser</h2>
 	<p>Just drag the link below to the bookmarks toolbar of your browser and create RubyURLs on the fly!</p>
 	<div id="action" class="arrow">
-		<a href="javascript:void(location.href='http://rubyurl.com/rubyurl/remote?website_url='+location.href)">RubyURL this Link</a>
+		<a href="javascript:void(location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(location.href)')">RubyURL this Link</a>
 	</div>
 </div><!-- end app_content -->
