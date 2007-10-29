@@ -23,7 +23,7 @@ class LinksController < ApplicationController
 
     unless @link.nil?
       @link.add_visit(request)
-      redirect_to @link.website_url
+      redirect_to @link.website_url, :status => :permanently_moved
     else
       redirect_to :action => 'invalid'
     end
