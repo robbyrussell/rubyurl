@@ -10,12 +10,12 @@ require 'highline/import'
 # What is the name of your application? (no spaces)
 # Example: 
 #   set :application_name, 'my_cool_app'
-set :application_name, 'my_cool_app'
+set :application_name, 'rubyurl'
 
 # What is the hostname of your Rails Boxcar server?
 # Example: 
 #    set :boxcar_server, 'rc1.railsboxcar.com'
-set :boxcar_server, '198.145.115.75'
+set :boxcar_server, 'rubyurl.com'
 
 # What is the username of your Rails Boxcar user that you want
 # to deploy this application with?
