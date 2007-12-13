@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require File.dirname(__FILE__) + '/../config/environment'
+
+@links = Link.find(:all)
+
+robot_file_path = File.dirname(__FILE__) + "/../public/robots.txt"
+
+if File.exist?(robot_file_path)
+  File.delete(robot_file_path)
+end
+
+robots_file = File.new(robot_file_path, "w+")
+
+robots_file.puts "User-agent: *"
+
+@links.each do |link|
+  robots_file.puts "Disallow: /#{link.token}"
+end
