@@ -5,3 +5,4 @@ Disallow: *
 Allow: /about
 Allow: /api
 Allow: /report-abuse
+Allow: /home

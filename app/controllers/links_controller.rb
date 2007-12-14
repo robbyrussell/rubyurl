@@ -1,7 +1,12 @@
 class LinksController < ApplicationController
 
   def index  
+    redirect_to '/home'
+  end
+  
+  def home
     @link = Link.new
+    render :action => 'index'
   end
 
   def create
