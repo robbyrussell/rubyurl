@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-  TOKEN_LENGTH = 3
+  TOKEN_LENGTH = 4
   
   has_many :visits
   has_many :spam_visits, :class_name => 'Visit', :conditions => ["flagged = 'spam'"]
