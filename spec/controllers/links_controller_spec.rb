@@ -3,10 +3,19 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe LinksController, "index action" do
   controller_name :links
   
+  it "should redirect to the home action" do
+    get :index
+    response.should redirect_to( :action => 'home' )
+  end
+end
+
+describe LinksController, "home action" do
+  controller_name :links
+  
   before(:each) do
     @link = mock('link')
     Link.stub!(:new).and_return(@link)    
-    get :index
+    get :home
   end
   
   it "should render the index view" do
