@@ -36,7 +36,7 @@ describe "Planet Argon link " do
     request.stub!(:remote_ip).and_return('127.0.0.1')
     lambda do
       @link.add_visit(request)
-    end.should change(Visit, :count).by(1)
+    end.should change (@link.visits, :count).by(1)
   end
 end
 
