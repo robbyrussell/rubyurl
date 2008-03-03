@@ -15,8 +15,7 @@ class Link < ActiveRecord::Base
   end
   
   def add_visit(request)
-    visit = visits.build
-    visit.ip_address = request.remote_ip
+    visit = visits.build(:ip_address => request.remote_ip)
     visit.save
     return visit
   end
