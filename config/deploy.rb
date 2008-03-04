@@ -26,8 +26,12 @@ set :boxcar_username, 'rubyurl'
 # Where is your source code repository?
 # Example:
 #   set :repository = 'http://svn.railsboxcar.com/my_cool_app/tags/CURRENT'
-set :svn_username, 'rubyurl'
-set :svn_repository_url, 'https://svn.roundhaus.com/planetargon/rubyurl_2-0/trunk'
+# set :svn_username, 'rubyurl'
+# set :svn_repository_url, 'https://svn.roundhaus.com/planetargon/rubyurl_2-0/trunk'
+
+set :repository, "git://github.com/robbyrussell/rubyurl.git"
+set :scm, "git"
+# set :scm_passphrase, "p00p"
 
 # What database server are you using?
 # Example:
@@ -66,9 +70,9 @@ set :domain_names, Proc.new { HighLine.ask("What is the primary domain name?") {
 
 # subversion / SCM
 # Ask the user for their subversion password
-set :svn_password, Proc.new { HighLine.ask("What is your subversion password for #{svn_username}: ") { |q| q.echo = "x" } }
-set :repository, Proc.new { "--username #{svn_username} " + "--password #{svn_password} " + "#{svn_repository_url}" }
-set :checkout,   'export'
+# set :svn_password, Proc.new { HighLine.ask("What is your subversion password for #{svn_username}: ") { |q| q.echo = "x" } }
+# set :repository, Proc.new { "--username #{svn_username} " + "--password #{svn_password} " + "#{svn_repository_url}" }
+# set :checkout,   'export'
 
 set :db_development,database_name[:development]
 set :db_test, database_name[:test]
@@ -226,5 +230,7 @@ end
 desc "Link in the production database.yml" 
 task :after_update_code do
   run "ln -nfs #{shared_dir}/config/database.yml #{release_path}/config/database.yml"
+  
+  run "ln -nfs #{shared_dir}/log #{release_path}/log"
 end
 
