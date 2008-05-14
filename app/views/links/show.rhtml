@@ -2,7 +2,11 @@
 	<h1>Here is your RubyURL</h1>
 
 	<div id="url" class="arrow">
-		<%= link_to @link.permalink, @link.permalink -%>
+		<%= link_to @link.permalink, @link.permalink -%> 
+		<div id="x_copy_button">
+		  <%= button_to_function 'Copy this RubyURL', "copy('#{@link.permalink}');" -%>
+		</div>
+		<div id="x_copied" style="display:none;">copied and ready for pasting!</div>
 	</div>
 
 	<dl id="url_stats">
