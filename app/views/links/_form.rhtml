@@ -4,3 +4,7 @@
   
   <%= submit_tag 'Go!' -%>
 <% end %>
+<br />
+<label>
+  <%= check_box_tag :auto_copy, 1, cookies[:auto_copy] == '1' %> Automatically copy new RubyURL
+</label>
