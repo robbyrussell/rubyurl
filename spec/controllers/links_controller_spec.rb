@@ -71,4 +71,3 @@ describe LinksController, "redirect with token" do
     response.should redirect_to( 'http://google.com/' )
   end
 end
-

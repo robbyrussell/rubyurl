@@ -136,5 +136,13 @@ describe "A new link" do
     @link.website_url = 'http://hamsterstyle.com/foo?x=1'
     @link.should have(0).errors_on(:website_url)
   end    
+
+  it "should save a link with an achor tag and retain it" do
+    @link = Link.new
+    @link.attributes = valid_attributes.except(:website_url)
+    @link.website_url = 'http://hamsterstyle.com/foo?x=1#test'
+    @link.save
+    @link.website_url.should == 'http://hamsterstyle.com/foo?x=1#test'
+  end
 end
 
