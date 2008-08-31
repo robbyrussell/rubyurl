@@ -19,6 +19,15 @@ class Link < ActiveRecord::Base
     visit.save
     return visit
   end
+
+  def to_api_xml
+    xml = Builder::XmlMarkup.new
+    xml.instruct!
+    xml.link do
+      xml.tag!( :website_url, self.website_url )
+      xml.tag!( :permalink, self.permalink )
+    end
+  end
   
   private
   
@@ -45,5 +54,5 @@ class Link < ActiveRecord::Base
       end
       temp_token
     end
-    
 end
+

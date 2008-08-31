@@ -146,3 +146,13 @@ describe "A new link" do
   end
 end
 
+describe Link, 'to_api_xml' do
+  before( :each ) do
+    @link = Link.new( { :website_url => 'http://www.robbyonrails.com/', :ip_address => '127.0.0.1' } )
+    @link.save
+  end
+  
+  it "should return the proper XML" do
+    @link.to_api_xml.should == '<?xml version="1.0" encoding="UTF-8"?><link><website_url>' + @link.website_url + '</website_url><permalink>' + @link.permalink + '</permalink></link>'
+  end
+end
