@@ -1,5 +1,6 @@
 log/*.log
 tmp/**/*
+coverage/**
 .DS_Store
 doc/api
 doc/app
