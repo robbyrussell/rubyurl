@@ -29,6 +29,10 @@ class Link < ActiveRecord::Base
     end
   end
   
+  def to_api_json
+    self.to_json( :only => [ :website_url, :permalink ] )
+  end
+  
   private
   
     def generate_token
