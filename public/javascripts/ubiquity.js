@@ -3,8 +3,10 @@ CmdUtils.CreateCommand({
   takes: {websiteUrl: noun_arb_text},
   
   homepage: "http://rubyurl.com",
-  author: {name: "Alex Malinovich", homepage: "http://the-love-shack.net/"},
+  author: {name: "Alex Malinovich", homepage: "http://the-love-shack.net/", email: "alex@malinovich.name"},
   license: "GPL",
+  icon: "http://rubyurl.com/favicon.ico",
+  description: 'Replaces the selected URL with a <a href="http://rubyurl.com">RubyURL</a>', 
   
   preview: function(previewBlock, websiteUrlText) {
     var previewTemplate = "Provides a RubyURL for <br/>" +       
