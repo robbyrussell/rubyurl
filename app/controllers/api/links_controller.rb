@@ -1,6 +1,11 @@
 class Api::LinksController < Api::BaseController
   def create
-    @link = Link.find_or_create_by_website_url( params[:link][:website_url] )
+    if params[:website_url].blank?    
+      website_url = params[:link][:website_url]
+    else
+      website_url = params[:website_url]
+    end
+    @link = Link.find_or_create_by_website_url( website_url )
     @link.ip_address = request.remote_ip if @link.new_record?      
 
     if @link.save        
