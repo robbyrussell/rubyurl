@@ -2,9 +2,8 @@
   <label for="link_website_url">Create a RubyURL</label>
   <%= f.text_field :website_url %>
   
-  <%= submit_tag 'Go!' -%>
+  <%= submit_tag 'Go!', :class => 'go' -%>
 <% end %>
-<br />
-<label>
+<label class="auto_copy" for="auto_copy">
   <%= check_box_tag :auto_copy, 1, cookies[:auto_copy] == '1' %> Automatically copy new RubyURL
 </label>

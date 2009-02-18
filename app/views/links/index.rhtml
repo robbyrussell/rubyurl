@@ -1,11 +1,15 @@
 <div id="app_content">
-	<% if flash[:warning] %><%= flash[:warning] -%><% end %>	
-	<div id="url">
-		<%= render :partial => 'links/form' %>
-	</div>
-	<h2>Add RubyURL to your favorite browser</h2>
-	<p>Just drag the link below to the bookmarks toolbar of your browser and create RubyURLs on the fly!</p>
-	<div id="action" class="arrow">
-		<a href="javascript:void(location.host=='maps.google.com'?location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(document.getElementById('link').href):location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(location.href))">RubyURL this</a>
-	</div>
+  <% if flash[:warning] %><%= flash[:warning] -%><% end %>	
+  <div id="url">
+    <%= render :partial => 'links/form' %>
+  </div>
+  <div id="bookmarklet_instructions">
+    <div id="helper_copy">
+    <p>Add RubyURL to your favorite browser by dragging the link on the right to the <strong>bookmark toolbar</strong> of your browser and create RubyURLs on the fly!</p>
+    </div>
+    <div id="bookmarklet">
+    <p><a href="javascript:void(location.host=='maps.google.com'?location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(document.getElementById('link').href):location.href='http://rubyurl.com/rubyurl/remote?website_url='+encodeURIComponent(location.href))">RubyURL this</a> </p>
+    </div>
+  </div> <!-- /bookmarklet_instructions -->
+    <img src="/images/firefox_chrome_example.png" width="724" height="78" alt="Firefox Example">
 </div><!-- end app_content -->
