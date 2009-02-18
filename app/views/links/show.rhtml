@@ -1,24 +1,24 @@
 <div id="app_content">
-	<h1>Here is your RubyURL</h1>
+  <div id="url">
+    <dl>
+      <dt>Here is your RubyURL</dt>
+      <dd><%= link_to @link.permalink, @link.permalink -%></dd> 
+    </dl>
+    <div id="x_copy_button">
+      <%= button_to_function 'Copy', "copy('#{@link.permalink}')", :class => 'copy' -%>
+    </div>
+    <div id="x_copied" style="display:none;">
+      <p>Your RubyURL is ready for pasting!</p>
+    </div>
+    <p><%= link_to 'Create another rubyurl', '/' -%> &#8617;</p>
+  </div>
 
-	<div id="url" class="arrow">
-		<%= link_to @link.permalink, @link.permalink -%> 
-		<div id="x_copy_button">
-		  <%= button_to_function 'Copy your RubyURL', "copy('#{@link.permalink}');" -%>
-		</div>
-		<div id="x_copied" style="display:none;">Your RubyURL is ready for pasting!</div>
-	</div>
-
-	<dl id="url_stats">
-		<dt>Original URL Length:</dt> 
-		<dd><%= @link.website_url.length -%> characters</dd>
-		<dt>RubyURL Length:</dt> 
-		<dd><%= @link.permalink.length -%> characters</dd>
-		<dt>shortened by:</dt> 
-		<dd><%= @link.website_url.length - @link.permalink.length -%> characters</dd>
-	</dl>
-
-	<div id="action">
-		<%= link_to 'Create another rubyurl', '/' -%> &#8617;
-	</div>
+  <dl id="url_stats">
+    <dt>Original URL Length:</dt> 
+    <dd><%= @link.website_url.length -%> characters</dd>
+    <dt>RubyURL Length:</dt> 
+    <dd><%= @link.permalink.length -%> characters</dd>
+    <dt>shortened by:</dt> 
+    <dd><%= @link.website_url.length - @link.permalink.length -%> characters</dd>
+  </dl>
 </div><!-- end app_content -->
