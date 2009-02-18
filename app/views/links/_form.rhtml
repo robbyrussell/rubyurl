@@ -1,5 +1,5 @@
 <% form_for :link, @link, :url => {:controller => :links ,:action => 'create'}  do |f| %>
-  <label for="link_website_url">Website URL</label>
+  <label for="link_website_url">Create a RubyURL</label>
   <%= f.text_field :website_url %>
   
   <%= submit_tag 'Go!' -%>
