@@ -1,29 +1,5 @@
 /* IE6, oh how I hate thee. */
 
-/*------------------------------------------------------------------------
- =Structure
-------------------------------------------------------------------------*/
-
-#logo {
-	margin: 0 0 -18px 9px;	
-}
-
-#main_nav {
-	margin: 9px 9px 0;
-}
-
-#app_content {
-	padding-top: 0;
-}
-
-#info_content {
-	border-top: 9px solid #fff;
-}
-
-#info_content p {
-	margin: 0 -18px 18px;
-}
-
-#tos {
-	padding: 0 0 18px;
+.wrapper * {
+  border: 1px solid pink;
 }
