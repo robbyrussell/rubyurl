@@ -1,5 +1,22 @@
 /* IE6, oh how I hate thee. */
 
-.wrapper * {
-  border: 1px solid pink;
+#app_content #url {
+  width: 680px;
+}
+
+input#link_website_url {
+	width: 560px;
+}
+
+input.go,
+input.copy {
+  background: #630000;
+	border: 1px solid #8a0000;
+	border-bottom: 2px solid #8a0000;
+	border-right: 2px solid #8a0000;
+	color: #fff;
+  float: right;
+  font-size: 20px;
+  margin: 0;
+  padding: 13px;
 }
