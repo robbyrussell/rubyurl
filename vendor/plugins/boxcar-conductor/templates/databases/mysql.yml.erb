@@ -1,0 +1,22 @@
+#
+# Generated on <%= today %> for Rails Boxcar (http://railsboxcar.com)
+#
+login: &login
+  adapter: <%= database_adapter %>
+  host: <%= database_host %>
+  port: <%= database_port %>
+  username: <%= database_username %>
+  password: <%= database_password %>
+  socket: <%= database_socket %>
+
+development:
+  database: <%= db_development %>
+  <<: *login
+
+test:
+  database: <%= db_test %>
+  <<: *login
+
+production:
+  database: <%= db_production %>
+  <<: *login

@@ -7,4 +7,4 @@ doc/app
 config/database.yml
 db/*.sqlite3
 db/schema.rb
-vendor/plugin/boxcar-conductor
+/vendor/plugin/boxcar-conductor

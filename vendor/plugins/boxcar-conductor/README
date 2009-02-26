@@ -1,0 +1,71 @@
+Boxcar Conductor
+==============
+
+This plugin provides you with deployment tools for your Rails application,
+which will help you deploy to your RailsBoxcar.com instance.
+
+
+## Requirements ##
+
+You'll want to make sure that you have the following gems installed
+before you begin:
+
+palmtree capistrano
+
+With newer versions of capistrano you should install the following:
+
+fastthread
+
+If you plan on using mongrel + nginx instead of Phusion Passenger, you
+should also install the following gems:
+
+mongrel mongrel_cluster
+
+
+## Automatic Installation ##
+
+If you're running a recent version of Rails, you can just install the
+plugin directly by doing:
+
+script/plugin install git://github.com/planetargon/boxcar-conductor.git
+
+
+## Manual Installation ##
+
+Otherwise, you can just do a manual install by following these steps:
+
+0.9) If you have git installed on your machine, run the following from
+     your application root directory:
+    
+git submodule add git://github.com/planetargon/boxcar-conductor.git vendor/plugins/boxcar-conductor
+
+    And then skip to step 3. Otherwise...
+
+1) Download a tarball of the latest release from
+
+http://github.com/planetargon/boxcar-conductor/tarball/master
+
+2) Untar this into your vendor/plugins directory, and rename the resulting
+   folder to boxcar-conductor
+
+3) cd into the boxcar-conductor directory, and do:
+
+../../../script/runner install.rb
+
+
+## Configure your Boxcar ##
+
+cap boxcar:config -q
+
+
+## Deploy! ##
+
+cap deploy:cold
+
+
+## Done! ##
+Feature Requests / Bugs
+
+* http://planetargon.lighthouseapp.com/projects/9962-boxcar-conductor
+
+Copyright (c) 2009 Planet Argon

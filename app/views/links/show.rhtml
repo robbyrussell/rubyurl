@@ -5,7 +5,8 @@
       <dd><%= link_to @link.permalink, @link.permalink -%></dd> 
     </dl>
     <div id="x_copy_button">
-      <%= button_to_function 'Copy', "copy('#{@link.permalink}')", :class => 'copy' -%>
+      <!-- this is totaly wrong -->
+      <%= button_to_function 'Copy', clippy(@link.permalink), :class => 'copy' -%>
     </div>
     <div id="x_copied" style="display:none;">
       <p>Your RubyURL is ready for pasting!</p>
