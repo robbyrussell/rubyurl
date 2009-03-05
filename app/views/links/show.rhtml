@@ -4,10 +4,10 @@
       <dt>Here is your RubyURL</dt>
       <dd><%= link_to @link.permalink, @link.permalink -%></dd> 
     </dl>
-    <div id="x_copy_button">
-      <%= button_to_function 'Copy', "copy('#{@link.permalink}')", :class => 'copy' -%>
-      <%= clippy(@link.permalink, '#FF0000')%>
-    </div>
+    <div id="x_copy_button" style="float:right;">
+      <%= clippy(@link.permalink, '#BA0000') -%>
+    </div>    
+
     <div id="x_copied" style="display:none;">
       <p>Your RubyURL is ready for pasting!</p>
     </div>
