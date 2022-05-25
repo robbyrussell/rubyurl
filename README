@@ -6,6 +6,10 @@ This project is the source code for the application that powers Rubyurl.com.
 
 Feel free to start your own URL-shortening service!
 
+== Screenshot
+
+!https://www.dropbox.com/s/4m6duw1xirkgugj/rubyurl-screenshot.png?dl=0!
+
 == Bugs and/or Feedback
 
 Feel free to submit tickets to the Rubyurl ticket system.
@@ -16,3 +20,4 @@ Feel free to submit tickets to the Rubyurl ticket system.
 
 Robby Russell <robby@planetargon.com>
 Chris Griffin <chris@deadboltdesign.com>
+
