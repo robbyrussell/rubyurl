@@ -3121,7 +3121,7 @@ Default YAML web services were retired, ActionController::Base.param_parsers car
       :update => { :success => "good", :failure => "bad" },
       403 => "alert('Forbidden- got ya!')",
       404 => "alert('Nothing there...?')", 
-      :failure => "alert('Unkown error ' + request.status)")
+      :failure => "alert('Unknown error ' + request.status)")
   
 * Attempt to explicitly flush the output at the end of CgiProcess#out
 
